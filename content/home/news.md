@@ -10,7 +10,7 @@ weight = 50
 
 
 ## 2024
-- **September:** Kubekeeper submitted to USENIX 2025
+- **September:** KubeKeeper submitted to USENIX 2025
 - **August:** LeakLess accepted to NDSS 2025
 
 ## 2023
