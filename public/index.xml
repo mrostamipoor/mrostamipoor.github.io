@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Maryam Rostamipoor</title><link>https://temp.github.io/</link><atom:link href="https://temp.github.io/index.xml" rel="self" type="application/rss+xml"/><description>Maryam Rostamipoor</description><generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>2020</copyright><lastBuildDate>Fri, 30 Aug 2024 00:00:00 +0000</lastBuildDate><image><url>https://temp.github.io/images/icon_hua375f763551ba1c1916dd21d8ac5d348_28501_512x512_fill_lanczos_center_2.png</url><title>Maryam Rostamipoor</title><link>https://temp.github.io/</link></image><item><title>LeakLess</title><link>https://temp.github.io/project/leakless/</link><pubDate>Fri, 30 Aug 2024 00:00:00 +0000</pubDate><guid>https://temp.github.io/project/leakless/</guid><description/></item><item><title>LeakLess: Selective Data Protection Against Memory Leakage Attacks for Serverless Platforms</title><link>https://temp.github.io/publication/leakless/</link><pubDate>Fri, 30 Aug 2024 00:00:00 +0000</pubDate><guid>https://temp.github.io/publication/leakless/</guid><description/></item><item><title>LeakLess: Selective Data Protection against Memory Disclosure and Transient Execution Attacks for Serverless Architectures</title><link>https://temp.github.io/talk/research-day/</link><pubDate>Fri, 29 Mar 2024 09:00:00 +0000</pubDate><guid>https://temp.github.io/talk/research-day/</guid><description/></item><item><title>Confine: Fine-grained System Call Filtering for Container Attack Surface Reduction</title><link>https://temp.github.io/publication/confine/</link><pubDate>Fri, 01 Sep 2023 00:00:00 +0000</pubDate><guid>https://temp.github.io/publication/confine/</guid><description/></item><item><title>Migrating my website to Hugo + Academic + ox-hugo</title><link>https://temp.github.io/post/migrating/</link><pubDate>Sat, 13 Jun 2020 00:00:00 +0000</pubDate><guid>https://temp.github.io/post/migrating/</guid><description>&lt;p>Being stuck at home during the pandemic, as miserable as it is, actually
+helps me to redesign my working environment. One of the many outcomes
+is this new personal website powered by the
+&lt;a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme&lt;/a> for
+&lt;a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo&lt;/a>. I
+hope you will agree with me that it just looks awesome!&lt;/p>
+&lt;p>For the rest of this blog post, I will explain the workflow to
+generate this website. I hope you may find it useful when designing
+your own website.&lt;/p>
+&lt;h2>Table of Contents&lt;/h2>
+&lt;nav id="TableOfContents">
+&lt;ul>
+&lt;li>&lt;a href="#the-hugo-framework">The Hugo framework&lt;/a>
+&lt;ul>
+&lt;li>&lt;a href="#static-site-generators">Static site generators&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#content-management-in-hugo">Content management in Hugo&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#front-matter-in-hugo">Front matter in Hugo&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#hugo-themes">Hugo themes&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#from-markdown-to-html">From Markdown to HTML&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;a href="#the-academic-theme">The Academic theme&lt;/a>
+&lt;ul>
+&lt;li>&lt;a href="#content-management-in-academic">Content management in Academic&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#organizing-your-work">Organizing your work&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#widget-pages">Widget pages&lt;/a>&lt;/li>
+&lt;li>&lt;a href="#customization-in-academic">Customization in Academic&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;a href="#the-ox-hugo-exporter">The ox-hugo exporter&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;/nav>
+&lt;h2 id="the-hugo-framework">The Hugo framework&lt;/h2>
+&lt;p>I admire the front-end web developers who still hand write HTML and
+CSS, but those are simply too much for me. If you are like me who just
+wants a personal website that can keep track of one&amp;rsquo;s work, chances
+are you would like to use some
+&lt;a href="https://en.wikipedia.org/wiki/Web%5Ftemplate%5Fsystem#Static%5Fsite%5Fgenerators" target="_blank" rel="noopener">static site generator&lt;/a>. When I was young
+and had my first encounter with the internet,
+&lt;a href="https://en.wikipedia.org/wiki/Microsoft%5FFrontPage" target="_blank" rel="noopener">Microsoft Frontpage&lt;/a> and
+&lt;a href="https://en.wikipedia.org/wiki/Adobe%5FDreamweaver" target="_blank" rel="noopener">Dreamweater&lt;/a> were the most popular website generator.&lt;/p>
+&lt;h3 id="static-site-generators">Static site generators&lt;/h3>
+&lt;p>But we are well past that time and there are many much better choices
+today. One great framework is the &lt;em>Markdown&lt;/em>, a lightweight markup
+language that is used in
+&lt;a href="https://guides.github.com/features/mastering-markdown/" target="_blank" rel="noopener">GitHub readme pages&lt;/a> and deeply integrated
+with statistical computing with the
+&lt;a href="https://rmarkdown.rstudio.com/" target="_blank" rel="noopener">R Markdown&lt;/a>. Many static site
+generators (including
+&lt;a href="https://jekyllrb.com/" target="_blank" rel="noopener">Jekyll&lt;/a> and
+&lt;a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo&lt;/a>) are able to automatically
+generate HTML codes from Markdown. This is a giant life-saver because
+Markdown is so much more readable.&lt;/p>
+&lt;p>After some brief research I decided to use Hugo. Based on my reading,
+Hugo is renowned as &amp;ldquo;the world&amp;rsquo;s fastest framework for building
+websites&amp;rdquo; and many developers were extremely happy about it. But for
+me, the killer was two extensions to Hugo: the Academic theme that
+implements many use features for academic researchers, and the
+&lt;a href="https://ox-hugo.scripter.co/" target="_blank" rel="noopener">ox-hugo&lt;/a> backend that exports &lt;code>.org&lt;/code> files straight to Hugo-compatible
+Markdown files. As an academic who already uses Emacs for most of the
+day-to-day work, these features are extremely convenient for me.&lt;/p>
+&lt;p>Installing Hugo in Mac OS X is straightforward with
+&lt;a href="https://brew.sh/" target="_blank" rel="noopener">homebrew&lt;/a>. Simply
+run&lt;/p>
+&lt;pre>&lt;code class="language-sh">brew install hugo
+&lt;/code>&lt;/pre>
+&lt;h3 id="content-management-in-hugo">Content management in Hugo&lt;/h3>
+&lt;p>Let&amp;rsquo;s first take a look at how Hugo works. The most useful thing to
+know is Hugo&amp;rsquo;s
+&lt;a href="https://gohugo.io/content-management/organization/" target="_blank" rel="noopener">organization of content source&lt;/a>. In particular, the most
+important is the &lt;code>content&lt;/code> folder, which contains all the Markdown
+files needed to generate the website. Here is a sample structure for
+the &lt;code>content&lt;/code> folder from Hugo&amp;rsquo;s official documentation (the base URL
+for this site is &lt;a href="https://example.com/">https://example.com/&lt;/a>):&lt;/p>
+&lt;pre>&lt;code class="language-text">.
+└── content
+└── about
+| └── index.md // &amp;lt;- https://example.com/about/
+├── posts
+| ├── firstpost.md // &amp;lt;- https://example.com/posts/firstpost/
+| ├── happy
+| | └── ness.md // &amp;lt;- https://example.com/posts/happy/ness/
+| └── secondpost.md // &amp;lt;- https://example.com/posts/secondpost/
+└── quote
+├── first.md // &amp;lt;- https://example.com/quote/first/
+└── second.md // &amp;lt;- https://example.com/quote/second/
+&lt;/code>&lt;/pre>
+&lt;p>As you can see, each Markdown file in a directory under &lt;code>content&lt;/code>
+generates a webpage. Notice that &lt;code>_index.md&lt;/code> has a special role in
+Hugo&amp;mdash;it allows you to add front matter and content to the list
+pages. See
+&lt;a href="https://gohugo.io/content-management/organization/#:~:text=%5Findex.md%20has%20a%20special,in%20%5Findex.md%20using%20the%20" target="_blank" rel="noopener">here&lt;/a> for more detail.&lt;/p>
+&lt;h3 id="front-matter-in-hugo">Front matter in Hugo&lt;/h3>
+&lt;p>Another important concept is the &lt;em>front matter&lt;/em> of a Markdown file
+that contains metadata and options for the content. Some popular
+formats are TOML and YAML, which are much more human friendly than
+JSON. The following block contains the first few lines of this blog
+post. The front matter is the lines between &lt;code>+++&lt;/code> (which means it is in TOML):&lt;/p>
+&lt;pre>&lt;code class="language-nil">+++
+title = &amp;quot;Migrating website to Hugo + Academic + ox-hugo&amp;quot;
+author = [&amp;quot;Qingyuan Zhao&amp;quot;]
+date = 2020-06-13
+tags = [&amp;quot;Workflow&amp;quot;]
+draft = false
++++
+Being stuck at home during the pandemic, as miserable as it is, actually
+helps me to redesign my working environment....
+&lt;/code>&lt;/pre>
+&lt;p>Apart from &lt;code>draft&lt;/code> which is a option for the Academic theme, all other
+fields are standard for Hugo Markdown files.&lt;/p>
+&lt;h3 id="hugo-themes">Hugo themes&lt;/h3>
+&lt;p>There are many
+&lt;a href="https://themes.gohugo.io/" target="_blank" rel="noopener">cool themes&lt;/a> for Hugo that you can immediately use. As
+far as I know, they are useful in two ways. First, all the page
+styles are already pre-defined and many of them look awesome! Second,
+they also provide convenient templates for the front matter. As an
+example, I was initially considering to use the
+&lt;a href="https://themes.gohugo.io/hugo-theme-jane/" target="_blank" rel="noopener">Jane theme&lt;/a> for this
+website. Similar to most other Hugo themes, it is really easy to
+install and get started; an example site can be found in its
+&lt;a href="https://github.com/xianmin/hugo-theme-jane/tree/master/exampleSite" target="_blank" rel="noopener">GitHub
+repository&lt;/a>, which generates this
+&lt;a href="https://themes.gohugo.io/theme/hugo-theme-jane/" target="_blank" rel="noopener">demo page&lt;/a>. One thing I especially
+like about this theme is how it allows the reader to focus on the
+website content. Eventually I did not choose it because it is not
+powerful enough for all the different functions I needed, but I would
+highly recommend it if you just want to write blogs.&lt;/p>
+&lt;h3 id="from-markdown-to-html">From Markdown to HTML&lt;/h3>
+&lt;p>After creating all the Markdown content and selecting a theme, you can
+preview the website by running&lt;/p>
+&lt;pre>&lt;code class="language-sh">hugo server
+&lt;/code>&lt;/pre>
+&lt;p>from the website directory. This builds the website and creates a
+local web server to
+host it. It generates a link (the default is &lt;a href="http://localhost:1313/">http://localhost:1313/&lt;/a>)
+which can be pasted into a web browser. In the background, the hugo
+server also detects any change to the content and updates the website
+automatically.&lt;/p>
+&lt;p>To public the website, first execute &lt;code>hugo&lt;/code> from the website
+directory. This builds all the website pages in the &lt;code>public/&lt;/code> folder
+within seconds. You can then upload that folder to an FTP server. For
+me, this amounts to&lt;/p>
+&lt;pre>&lt;code class="language-sh">rsync -avz --delete public/ qz280@ssh.maths.cam.ac.uk:~/public_html
+&lt;/code>&lt;/pre>
+&lt;p>See
+&lt;a href="https://gohugo.io/hosting-and-deployment/" target="_blank" rel="noopener">here&lt;/a> for other options to host and deploy your website.&lt;/p>
+&lt;h2 id="the-academic-theme">The Academic theme&lt;/h2>
+&lt;p>
+&lt;a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic&lt;/a> is a Hugo theme designed for academic researchers. To me, it
+is a website builder with just the right balance of complexity and
+flexibility. There are
+&lt;a href="https://sourcethemes.com/academic/docs/install-locally/" target="_blank" rel="noopener">many ways&lt;/a> to install the Academic theme. I
+prefer the Git option by forking and cloning the
+&lt;a href="https://github.com/sourcethemes/academic-kickstart" target="_blank" rel="noopener">Academic Kickstart
+GitHub repository&lt;/a>. You can then modify the content of the startup
+website and customize its styles.&lt;/p>
+&lt;h3 id="content-management-in-academic">Content management in Academic&lt;/h3>
+&lt;p>Academic has a convenient content management system that is inherited
+from Hugo. This is currently how my website directory looks like:&lt;/p>
+&lt;pre>&lt;code class="language-text">├── assets
+│   ├── images
+│   └── scss
+├── config
+│   └── _default
+├── content
+│   ├── authors
+│   ├── home
+│   ├── news
+│   ├── post
+│   ├── project
+│   ├── publication
+│   ├── talk
+│   └── teaching
+├── content-org
+├── data
+│   ├── fonts
+│   └── themes
+├── resources
+│   └── _gen
+├── scripts
+├── static
+│   ├── admin
+│   ├── files
+│   └── img
+└── themes
+└── academic
+&lt;/code>&lt;/pre>
+&lt;p>Unsurprisingly, the &lt;code>content&lt;/code> folder contains all the Markdown files
+for website content. Most of its sub-directories correspond to a
+section of the webpage; in particular, &lt;code>home&lt;/code> corresponds to the
+homepage of your website. Another unique folder is the &lt;code>authors&lt;/code>,
+which contains basic information about the website owner and all other
+authors (not needed for a personal website). The &lt;code>content-org&lt;/code>
+contains the org-mode files that generate some or all of the Markdown
+files in &lt;code>content&lt;/code>. I will go through this later on in the post, but
+it is of course not needed if you don&amp;rsquo;t use org-mode. The &lt;code>config&lt;/code>
+folder contains all the important website settings offered by the
+Academic theme. See
+&lt;a href="https://sourcethemes.com/academic/docs/get-started/" target="_blank" rel="noopener">its documentation&lt;/a> for more information.&lt;/p>
+&lt;h3 id="organizing-your-work">Organizing your work&lt;/h3>
+&lt;p>A nice feature of the Academic framework is the templates for
+publications, talks, projects, and many other academic-related
+objects. For example, I recently arXived a paper on the
+&lt;a href="https://arxiv.org/abs/2004.07743" target="_blank" rel="noopener">selection bias in COVID-19 studies&lt;/a>. To add this new publication to my
+webpage, I can execute the following command&lt;/p>
+&lt;pre>&lt;code class="language-sh">hugo new --kind publication publication/covid-19-bets
+&lt;/code>&lt;/pre>
+&lt;p>This generates a Markdown file &lt;code>publication/covid-19-bets/index.md&lt;/code>
+with YAML front matter from the publication template. I can then
+add all the relevant information about this publication to the
+Markdown file. This is how the beginning of this file looks like
+right now:&lt;/p>
+&lt;pre>&lt;code class="language-text">---
+# Documentation: https://sourcethemes.com/academic/docs/managing-content/
+title: &amp;quot;BETS: The dangers of selection bias in early analyses of the coronavirus disease (COVID-19) pandemic&amp;quot;
+authors: [&amp;quot;admin&amp;quot;, &amp;quot;Phyllis Ju&amp;quot;, &amp;quot;Sergio Bacallado&amp;quot;, &amp;quot;Rajen Shah&amp;quot;]
+date: 2020-04-16
+doi: &amp;quot;&amp;quot;
+# Schedule page publish date (NOT publication's date).
+publishDate: 2020-06-13T21:28:45Z
+# Publication type.
+# Legend: 0 = Uncategorized; 1 = Conference paper; 2 = Journal article;
+# 3 = Preprint / Working Paper; 4 = Report; 5 = Book; 6 = Book section;
+# 7 = Thesis; 8 = Patent
+publication_types: [&amp;quot;3&amp;quot;]
+---
+&lt;/code>&lt;/pre>
+&lt;p>As you can see, the YAML fields record important metadata about the
+publication, which are used by Academic to automatically generate this
+nice
+&lt;a href="https://temp.github.io/~qz280/publication/covid-19-bets/">webpage&lt;/a>. This same workflow apples to talks, projects, and other
+&lt;a href="https://sourcethemes.com/academic/docs/managing-content/" target="_blank" rel="noopener">content types&lt;/a> provided by Academic.&lt;/p>
+&lt;h3 id="widget-pages">Widget pages&lt;/h3>
+&lt;p>An important feature of Academic is its
+&lt;a href="https://sourcethemes.com/academic/docs/page-builder/" target="_blank" rel="noopener">widget pages&lt;/a>. They are
+essentially custom page blocks that summarizes the information in the
+other pages. By default, the homepage is a widget page with many
+built-in widgets:&lt;/p>
+&lt;pre>&lt;code class="language-sh">&amp;gt; ls content/home
+&lt;/code>&lt;/pre>
+&lt;pre>&lt;code class="language-text">about.md demo.md hero.md projects.md tags.md
+accomplishments.md experience.md index.md skills.md teaching.md
+contact.md featured.md people.md slider.md welcome.md
+&lt;/code>&lt;/pre>
+&lt;p>Personally, I prefer a clean homepage and would use separate section
+pages to organize the website. So
+&lt;a href="https://temp.github.io/">my homepage&lt;/a> only contains two
+widgets. Additionally, I created a custom widget page called
+&lt;a href="https://temp.github.io/news/">news&lt;/a> to
+make announcements and display new content.&lt;/p>
+&lt;h3 id="customization-in-academic">Customization in Academic&lt;/h3>
+&lt;p>The are several important files to modify when building your own
+website:&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>config/default/config.toml&lt;/code> General configuration for Hugo.&lt;/li>
+&lt;li>&lt;code>config/default/params.toml&lt;/code> Parameters for Academic.&lt;/li>
+&lt;li>&lt;code>config/default/menus.toml&lt;/code> Configuration for the menu bar.&lt;/li>
+&lt;li>&lt;code>content/authors/admin/_index.md&lt;/code> Information about the website
+owner.&lt;/li>
+&lt;/ul>
+&lt;p>Advanced customization can be found
+&lt;a href="https://sourcethemes.com/academic/docs/customization/" target="_blank" rel="noopener">here&lt;/a>.&lt;/p>
+&lt;h2 id="the-ox-hugo-exporter">The ox-hugo exporter&lt;/h2>
+&lt;p>Finally, I use &lt;code>ox-hugo&lt;/code>, an Org mode to Hugo exporter, to generate blog
+posts and other text-rich content in this website. Since the beginning
+of my PhD, I have gradually become an heavy user of the extremely
+extensible text editor
+&lt;a href="https://www.gnu.org/software/emacs/" target="_blank" rel="noopener">Emacs&lt;/a>. Previously I was mostly just using Emacs
+for writing &lt;em>R&lt;/em> and \(\LaTeX\) with the amazing
+&lt;a href="https://ess.r-project.org/" target="_blank" rel="noopener">ESS&lt;/a> and
+&lt;a href="https://www.gnu.org/software/auctex/" target="_blank" rel="noopener">AUCTeX&lt;/a> modes. I
+saw great reviews of the
+&lt;a href="https://orgmode.org/" target="_blank" rel="noopener">Org mode&lt;/a> before and started
+to appreciate it as my duties pile up after becoming an independent
+investigator. Org mode, as its name suggests, is a great way to keep
+oneself organized. Besides keeping notes and managing TODO lists,
+Org mode is also great for writing documents. It has powerful backends
+that can export &lt;code>.org&lt;/code> files to LaTeX, HTML, Markdown, and other
+formats.&lt;/p>
+&lt;p>A picture is worth a thousand words. This is the &lt;code>.org&lt;/code> files that generates the blog
+post you are currently viewing.&lt;/p>
+&lt;figure >
+&lt;a data-fancybox="" href="https://temp.github.io/~qz280/img/ox-hugo-example.png" >
+&lt;img src="https://temp.github.io/~qz280/img/ox-hugo-example.png" alt="" >
+&lt;/a>
+&lt;/figure>
+&lt;p>I followed the &amp;ldquo;one post per Org subtree&amp;rdquo; format
+&lt;a href="https://ox-hugo.scripter.co/" target="_blank" rel="noopener">recommended&lt;/a> by the
+&lt;code>ox-hugo&lt;/code> author. So my &lt;code>content-org/&lt;/code> folder has only one &lt;code>.org&lt;/code>
+file:&lt;/p>
+&lt;pre>&lt;code class="language-sh">&amp;gt; ls content-org/
+&lt;/code>&lt;/pre>
+&lt;pre>&lt;code class="language-text">all-posts.org
+&lt;/code>&lt;/pre>
+&lt;p>Each website section corresponds to a level-1
+heading (one *), and each blog post is contained under a level-2
+heading in Post. Each heading has some properties (and inherit the
+properties of its ancestors) that are exported to TOML or YAML front
+matter. If the &lt;code>EXPORT_FILE_NAME&lt;/code> is specified, content under that
+heading is then exported to the corresponding section in the &lt;code>content&lt;/code>
+folder:&lt;/p>
+&lt;pre>&lt;code class="language-sh">&amp;gt; ls content/post/
+&lt;/code>&lt;/pre>
+&lt;pre>&lt;code class="language-text">_index.md migrating.md mr-software.md
+&lt;/code>&lt;/pre>
+&lt;p>To export all subtrees to Hugo Markdown, simply press &lt;code>C-c C-e H A&lt;/code> in
+Emacs. The local Hugo server then picks up the content change and
+updates the website. More information about &lt;code>ox-hugo&lt;/code> (including
+many advanced features that I am still learning) can be found in its
+&lt;a href="https://ox-hugo.scripter.co/" target="_blank" rel="noopener">online documentation&lt;/a>.&lt;/p>
+&lt;p>So that&amp;rsquo;s it for now! Feel free to leave a comment below. I will
+update this post if I make any major modification to this workflow in
+the future.&lt;/p></description></item><item><title/><link>https://temp.github.io/featured/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://temp.github.io/featured/</guid><description/></item></channel></rss>

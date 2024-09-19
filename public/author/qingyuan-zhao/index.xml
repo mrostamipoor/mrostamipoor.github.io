@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Qingyuan Zhao | Maryam Rostamipoor</title>
+    <link>https://mrostamipoor.github.io/author/qingyuan-zhao/</link>
+      <atom:link href="https://mrostamipoor.github.io/author/qingyuan-zhao/index.xml" rel="self" type="application/rss+xml" />
+    <description>Qingyuan Zhao</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>2020</copyright><lastBuildDate>Thu, 16 Apr 2020 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://mrostamipoor.github.io/author/qingyuan-zhao/avatar_hu78bc2707de50cef213c32b46feacddbe_2928667_270x270_fill_q90_lanczos_center.jpg</url>
+      <title>Qingyuan Zhao</title>
+      <link>https://mrostamipoor.github.io/author/qingyuan-zhao/</link>
+    </image>
+    
+    <item>
+      <title>BETS: The dangers of selection bias in early analyses of the coronavirus disease (COVID-19) pandemic</title>
+      <link>https://mrostamipoor.github.io/publication/covid-19-bets/</link>
+      <pubDate>Thu, 16 Apr 2020 00:00:00 +0000</pubDate>
+      <guid>https://mrostamipoor.github.io/publication/covid-19-bets/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
