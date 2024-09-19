@@ -14,7 +14,7 @@ role: Research Assistant at Hexlab
 
 # Organizations/Affiliations
 organizations:
-- name: Stony Brook University
+- name: Department of Computer Science, Stony Brook University
   url: "https://www.cs.stonybrook.edu/"
 
 # Short bio (displayed in user profile at end of posts)
@@ -72,8 +72,8 @@ user_groups:
 - Principal Investigators
 ---
 
-I am a Ph.D. candidate in the Computer Science Department at Stony Brook University, working in the HexLab under the supervision of  [Dr. Michalis Polychronakis](https://www3.cs.stonybrook.edu/~mikepo/). My research focuses on advancing cloud and Kubernetes security, where I develop novel techniques to prevent data leakage, enhance secret management, and secure serverless environments. I have designed solutions to address vulnerabilities such as excessive permissions and speculative execution attacks, particularly in Kubernetes and serverless platforms.
+I am a Ph.D. candidate in the Computer Science Department at Stony Brook University, working in the HexLab under the supervision of  [Dr. Michalis Polychronakis](https://www3.cs.stonybrook.edu/~mikepo/). My research focuses on advancing cloud and Kubernetes security, where I develop novel techniques to prevent data leakage, enhance secret management, and secure serverless environments. I have designed solutions to address vulnerabilities such as excessive permissions and memory leakage attacks, including speculative execution attacks, particularly in Kubernetes and serverless platforms.
 
-My work also includes designing binary analysis tools to minimize system attack surfaces through fine-grained system call filtering. I specialize in areas such as access control, secure secret management, information leakage prevention, speculative execution attack mitigation, and binary analysis.
+In addition, my work involves designing binary analysis tools to reduce system attack surfaces through fine-grained system call filtering.
 
-Before pursuing my Ph.D., I was a Senior Web Application Security Engineer at Sadad Electronic Payment Company, where I led penetration testing efforts and improved the security of web and mobile applications.
+Prior to pursuing my Ph.D., I worked as a Senior Web Application Security Engineer at Sadad Electronic Payment Company, where I led penetration testing efforts and enhanced the security of web and mobile applications.
