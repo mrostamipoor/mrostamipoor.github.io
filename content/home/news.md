@@ -21,4 +21,4 @@ weight = 50
 - **September:** Confine accepted to the Computers & Security Journal
 
 ## 2020
-- **October:** Awarded Stony Brook University CS Department Chair Fellowship
+- **October:** Accepted a full funded Ph.D. offer from Stony brook University
