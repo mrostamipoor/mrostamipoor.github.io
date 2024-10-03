@@ -21,23 +21,23 @@ organizations:
 bio: I am interested in Security.
 
 interests:
-- Cloud & Kubernetes Security
+- Cloud Computing & Kubernetes Security
 - Binary Analysis & System Call Filtering
-- Web Application & Penetration Testing
+- Web & Mobile Application Penetration Testing
 
 
 education:
   courses:
-  - course: PhD in Computer Science
+  - course: Ph.D. in Computer Science
     institution: Stony Brook University
     year: 2026
-  - course: MS in Computer Science
+  - course: M.S. in Computer Science
     institution: Stony Brook University
     year: 2023
-  - course: ME in Information Security Engineering
+  - course: M.E. in Information Security Engineering
     institution: Amirkabir University of Technology
     year: 2013
-  - course: BE in Computer Engineering
+  - course: B.E. in Computer Engineering
     institution: Shiraz University of Technology
     year: 2011
 # Social/Academic Networking
@@ -64,7 +64,7 @@ social:
 # To enable, copy your resume/CV to `static/files/cv.pdf` and uncomment the lines below.
 - icon: cv
   icon_pack: ai
-  link: files/cv.pdf
+  link: files/MaryamRostamipoor-resume-2024.pdf
 
 # Enter email to display Gravatar (if Gravatar enabled in Config)
 email: "mrostamipoor@cs.stonybrook.edu"
@@ -75,8 +75,8 @@ user_groups:
 - Principal Investigators
 ---
 
-I am a Ph.D. candidate in the Computer Science Department at Stony Brook University, working in the HexLab under the supervision of  [Dr. Michalis Polychronakis](https://www3.cs.stonybrook.edu/~mikepo/). My research focuses on advancing cloud and Kubernetes security, where I develop novel techniques to prevent data leakage, enhance secret management, and secure serverless environments. I have designed solutions to address vulnerabilities such as excessive permissions and memory leakage attacks, including speculative execution attacks, particularly in Kubernetes and serverless platforms.
+I am a Ph.D. candidate in the Computer Science Department at Stony Brook University, working in the Hexlab under the supervision of  [Dr. Michalis Polychronakis](https://www3.cs.stonybrook.edu/~mikepo/). My research focuses on advancing cloud and Kubernetes security, where I develop novel techniques to prevent data leakage, enhance secret management, and secure serverless environments. I have designed solutions to address vulnerabilities such as excessive permissions and memory leakage attacks, including speculative execution attacks, particularly in Kubernetes and serverless platforms.
 
 In addition, my work involves designing binary analysis tools to reduce system attack surfaces through fine-grained system call filtering.
 
-Prior to pursuing my Ph.D., I worked as a Senior Web Application Security Engineer at Sadad Electronic Payment Company, where I led penetration testing efforts and enhanced the security of web and mobile applications.
+Prior to my Ph.D., I was the Head of Software Security at Sadad Electronic Payment Company, where I led a team of security engineers in penetration testing, secure coding, and enhancing the security of web and mobile applications.

@@ -48,12 +48,12 @@
   {{ $i18n = "more_pages" }}
 {{ end }}
 
-<div class="row">
-  <div class="col-12 col-lg-4 section-heading">
+<div class="row" style="text-align: justify;">
+  <div class="col-12 col-lg-4 section-heading" style="text-align: justify;">
     <h1>{{ with $st.Title }}{{ . | markdownify | emojify }}{{ end }}</h1>
     {{ with $st.Params.subtitle }}<p>{{ . | markdownify | emojify }}</p>{{ end }}
   </div>
-  <div class="col-12 col-lg-8">
+  <div class="col-12 col-lg-8" style="text-align: justify;">
 
     {{ with $st.Content }}{{ . }}{{ end }}
 
@@ -70,7 +70,7 @@
     {{end}}
 
   {{ if $st.Params.content.link_to_archive }}
-    <div class="see-all">
+    <div class="see-all" style="text-align: justify;">
       <a href="{{ $archive_page.RelPermalink }}">
         {{ i18n $i18n | default "See all" }}
         <i class="fas fa-angle-right"></i>

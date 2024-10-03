@@ -1,0 +1,9 @@
+/* Apply justification to the About widget content */
+.about-widget-content p {
+    text-align: justify;
+}
+
+/* Ensure other elements in the About section are also justified, if necessary */
+.about-widget-content {
+    text-align: justify;
+}

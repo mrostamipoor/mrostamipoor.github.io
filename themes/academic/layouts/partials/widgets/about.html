@@ -19,7 +19,7 @@
 
 <!-- About widget -->
 <div class="row">
-  <div class="col-12 col-lg-4">
+  <div class="col-12 col-lg-4" style="text-align: justify;">
     <div id="profile">
 
       {{ if site.Params.avatar.gravatar }}
@@ -67,17 +67,17 @@
 
     </div>
   </div>
-  <div class="col-12 col-lg-8">
+  <div class="col-12 col-lg-8" style="text-align: justify;">
 
     {{/* Only display widget title in explicit instances of about widget, not in author pages. */}}
     {{ if and $page.Params.widget $page.Title }}<h1>{{ $page.Title | markdownify | emojify }}</h1>{{ end }}
 
     {{ $person_page.Content }}
 
-    <div class="row">
+    <div class="row" style="text-align: justify;">
 
       {{ with $person.interests }}
-      <div class="col-md-5">
+      <div class="col-md-5" style="text-align: justify;">
         <h3>{{ i18n "interests" | markdownify }}</h3>
         <ul class="ul-interests">
           {{ range . }}
@@ -88,15 +88,15 @@
       {{ end }}
 
       {{ with $person.education }}
-      <div class="col-md-7">
+      <div class="col-md-7" style="text-align: justify;">
         <h3>{{ i18n "education" | markdownify }}</h3>
-        <ul class="ul-edu fa-ul">
+        <ul class="ul-edu fa-ul" style="text-align: justify;">
           {{ range .courses }}
           <li>
             <i class="fa-li fas fa-graduation-cap"></i>
-            <div class="description">
-              <p class="course">{{ .course }}{{ with .year }}, {{ . }}{{ end }}</p>
-              <p class="institution">{{ .institution }}</p>
+            <div class="description" style="text-align: justify;">
+              <p class="course" style="text-align: justify;">{{ .course }}{{ with .year }}, {{ . }}{{ end }}</p>
+              <p class="institution" style="text-align: justify;">{{ .institution }}</p>
             </div>
           </li>
           {{ end }}

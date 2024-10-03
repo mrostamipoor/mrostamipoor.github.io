@@ -8,16 +8,16 @@
 
     {{ if .Params.abstract }}
     <h3>{{ i18n "abstract" }}</h3>
-    <p class="pub-abstract">{{ .Params.abstract | markdownify }}</p>
+    <p class="pub-abstract" style="text-align: justify;">{{ .Params.abstract | markdownify }}</p>
     {{ end }}
 
     {{ if and (.Params.publication_types) (ne (index .Params.publication_types 0) "0") }}
-    <div class="row">
-      <div class="col-md-1"></div>
-      <div class="col-md-10">
-        <div class="row">
-          <div class="col-12 col-md-3 pub-row-heading">{{ i18n "publication_type" }}</div>
-          <div class="col-12 col-md-9">
+    <div class="row" style="text-align: justify;">
+      <div class="col-md-1" style="text-align: justify;"></div>
+      <div class="col-md-10" style="text-align: justify;">
+        <div class="row" style="text-align: justify;">
+          <div class="col-12 col-md-3 pub-row-heading" style="text-align: justify;">{{ i18n "publication_type" }}</div>
+          <div class="col-12 col-md-9" style="text-align: justify;">
             {{ $pub_types := partial "functions/get_pub_types" $ }}
             {{ range $index, $pubtype := .Params.publication_types }}
             <a href="{{ (site.GetPage "section" "publication").RelPermalink }}#{{ . | urlize }}">
@@ -27,28 +27,28 @@
           </div>
         </div>
       </div>
-      <div class="col-md-1"></div>
+      <div class="col-md-1" style="text-align: justify;"></div>
     </div>
-    <div class="d-md-none space-below"></div>
+    <div class="d-md-none space-below" style="text-align: justify;"></div>
     {{ end }}
 
     {{ if .Params.publication }}
-    <div class="row">
-      <div class="col-md-1"></div>
-      <div class="col-md-10">
-        <div class="row">
-          <div class="col-12 col-md-3 pub-row-heading">{{ i18n "publication" }}</div>
-          <div class="col-12 col-md-9">{{ .Params.publication | markdownify }}</div>
+    <div class="row" style="text-align: justify;">
+      <div class="col-md-1" style="text-align: justify;"></div>
+      <div class="col-md-10" style="text-align: justify;">
+        <div class="row" style="text-align: justify;">
+          <div class="col-12 col-md-3 pub-row-heading" style="text-align: justify;">{{ i18n "publication" }}</div>
+          <div class="col-12 col-md-9" style="text-align: justify;">{{ .Params.publication | markdownify }}</div>
         </div>
       </div>
       <div class="col-md-1"></div>
     </div>
-    <div class="d-md-none space-below"></div>
+    <div class="d-md-none space-below" style="text-align: justify;"></div>
     {{ end }}
 
-    <div class="space-below"></div>
+    <div class="space-below" style="text-align: justify;"></div>
 
-    <div class="article-style">{{ .Content }}</div>
+    <div class="article-style" style="text-align: justify;">{{ .Content }}</div>
 
     {{ partial "page_footer" . }}
 
