@@ -28,8 +28,8 @@ featured: true
 #   icon_pack: fab
 #   icon: twitter
 
-url_pdf: files/kubekepper.pdf
-url_code: https://github.com/mrostamipoor/KuebKeeper
+url_pdf: files/kubekeeper.pdf
+url_code: https://github.com/mrostamipoor/KubeKeeper
 #url_dataset: https://github.com/mrostamipoor/LeakLess/tree/main/leakless-dataset
 url_poster:
 url_project:
