@@ -3,7 +3,7 @@
 
 title: "KubeKeeper: Protecting Kubernetes Secrets Against Excessive Permissions"
 authors: ["admin", "Aliakbar Sadeghi", "Michalis Polychronakis"]
-date: 2025-06-01
+date: 2025-04-20
 
 publication_types: ["1"]
 
