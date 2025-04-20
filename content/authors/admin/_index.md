@@ -75,8 +75,10 @@ user_groups:
 - Principal Investigators
 ---
 
-I am a Ph.D. candidate in the Computer Science Department at Stony Brook University, working in the Hexlab under the supervision of  [Dr. Michalis Polychronakis](https://www3.cs.stonybrook.edu/~mikepo/). My research focuses on advancing cloud and Kubernetes security, where I develop novel techniques to prevent data leakage, enhance secret management, and secure serverless environments. I have designed solutions to address vulnerabilities such as excessive permissions and memory leakage attacks, including speculative execution attacks, particularly in Kubernetes and serverless platforms.
+I am a Ph.D. candidate in the Computer Science Department at Stony Brook University, working in the Hexlab under the supervision of  [Dr. Michalis Polychronakis](https://www3.cs.stonybrook.edu/~mikepo/). My research focuses on advancing cloud, Kubernetes, and software security. I design techniques to mitigate vulnerabilities such as data leakage and excessive permissions, while enhancing secret management and securing serverless platforms. I’ve developed tools like **KubeKeeper**, which protects Kubernetes Secrets through transparent encryption and fine-grained access control, and **LeakLess**, which uses selective in-memory encryption for developer-annotated sensitive data to mitigate memory disclosure vulnerabilities—including speculative execution attacks—in serverless environments.
 
-In addition, my work involves designing binary analysis tools to reduce system attack surfaces through fine-grained system call filtering.
+In the area of software security and system hardening, I developed **Confine**, a binary analysis tool that automatically generates fine-grained Seccomp profiles by extracting system call argument values to help reduce container attack surfaces.
 
 Prior to my Ph.D., I was the Head of Software Security at Sadad Electronic Payment Company, where I led a team of security engineers in penetration testing, secure coding, and enhancing the security of web and mobile applications.
+
+I’m passionate about protecting user data and building secure systems, and I’m driven by the challenge of solving real-world cybersecurity problems. Outside of research, I love cooking, yoga, working out, and spending time with friends—it keeps me grounded and inspired.
