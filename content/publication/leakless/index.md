@@ -3,7 +3,7 @@
 
 title: "LeakLess: Selective Data Protection Against Memory Leakage Attacks for Serverless Platforms"
 authors: ["admin", "Seyedhamed Ghavamnia", "Michalis Polychronakis"]
-date: 2024-08-30
+#date: 2024-08-30
 #doi: "10.1214/20-AOAS1401"
 
 # Schedule page publish date (NOT publication's date).
