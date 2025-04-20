@@ -3,7 +3,7 @@
 
 title: "LeakLess: Selective Data Protection Against Memory Leakage Attacks for Serverless Platforms"
 authors: ["admin", "Seyedhamed Ghavamnia", "Michalis Polychronakis"]
-#date: 2024-08-30
+date: 2025-02-28
 #doi: "10.1214/20-AOAS1401"
 
 # Schedule page publish date (NOT publication's date).
@@ -16,7 +16,7 @@ authors: ["admin", "Seyedhamed Ghavamnia", "Michalis Polychronakis"]
 publication_types: ["1"]
 
 # Publication name and optional abbreviated publication name.
-publication: "In Proceedings of the Network and Distributed System Security Symposium (NDSS). February 2025, San Diego, CA"
+publication: "In Proceedings of the Network and Distributed System Security Symposium (NDSS). San Diego, CA"
 publication_short: ""
 
 abstract: "LeakLess is an approach for protecting secret data against memory disclosure vulnerabilities and transient execution attacks on serverless computing platforms that use language-level sandboxing to run untrusted code. LeakLess relies on selective in-memory encryption of developer-annotated sensitive data and addresses the limitations of previous selective data protection techniques by combining in-memory encryption with a separate I/O module. This enables the safe transmission of protected data between serverless functions and external hosts. We implemented LeakLess on the Spin serverless platform and evaluated it with real-world serverless applications. Our results demonstrate that LeakLess provides robust protection while incurring only a minor throughput decrease—up to 2.8% when the I/O module runs on a different host than the Spin runtime, and up to 8.5% when it runs on the same host."
