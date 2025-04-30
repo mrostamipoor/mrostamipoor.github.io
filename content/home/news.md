@@ -9,6 +9,7 @@ weight = 50
 +++
 
 ## 2025
+- **April:** Awarded the Catacosinos Fellowship for academic excellence and research potential
 - **February:** KubeKeeper accepted to IEEE EuroS&P 2025
 - **February:** Selected for the 2025 CRA-WP Grad Cohort for Women & IDEALS
 - **January:** Awarded the 2025 Internet Society NDSS Fellowship
