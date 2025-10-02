@@ -64,7 +64,7 @@ social:
 # To enable, copy your resume/CV to `static/files/cv.pdf` and uncomment the lines below.
 - icon: cv
   icon_pack: ai
-  link: files/MaryamRostamipoor-resume-2024.pdf
+  link: files/MaryamRostamipoor-Resume-2025.pdf
 
 # Enter email to display Gravatar (if Gravatar enabled in Config)
 email: "mrostamipoor@cs.stonybrook.edu"
@@ -75,9 +75,10 @@ user_groups:
 - Principal Investigators
 ---
 
-I am a Ph.D. candidate in the Computer Science Department at Stony Brook University, working in the Hexlab under the supervision of  [Dr. Michalis Polychronakis](https://www3.cs.stonybrook.edu/~mikepo/). My research focuses on advancing cloud, Kubernetes, and software security. I design techniques to mitigate vulnerabilities such as data leakage and excessive permissions, while enhancing secret management and securing serverless platforms. I’ve developed tools like **KubeKeeper**, which protects Kubernetes Secrets through transparent encryption and fine-grained access control, and **LeakLess**, which uses selective in-memory encryption for developer-annotated sensitive data to mitigate memory disclosure vulnerabilities—including speculative execution attacks—in serverless environments.
+I am a Ph.D. candidate in Computer Science at Stony Brook University, advised by [Dr. Michalis Polychronakis](https://www3.cs.stonybrook.edu/~mikepo/), and a Security Researcher with over 10 years of combined research and industry experience in cloud, container, and application security. My work specializes in scalable defenses against data leakage in cloud-native and serverless environments, with expertise in program analysis, vulnerability discovery, and secure software design. I am proficient in Python, Go, Rust, Kubernetes, and CodeQL, with applied experience using LLMs for data flow analysis in serverless applications. I have a proven record of building tools for Kubernetes secret protection, serverless memory safety, and container hardening—translating cutting-edge research into practical security solutions.
 
-In the area of software security and system hardening, I developed **Confine**, a binary analysis tool that automatically generates fine-grained Seccomp profiles by extracting system call argument values to help reduce container attack surfaces.
+I designed and developed **KubeKeeper**, a framework that prevents Kubernetes Secret leakage by applying encryption and fine-grained access control. I also created **LeakLess**, a selective in-memory encryption approach for developer-annotated sensitive data in serverless platforms, mitigating memory disclosure and transient execution attacks.
+In the area of software security and container hardening, I developed **Confine**, a binary analysis tool that automatically generates fine-grained Seccomp profiles by extracting system call argument values to help reduce container attack surfaces.
 
 Prior to my Ph.D., I was the Head of Software Security at Sadad Electronic Payment Company, where I led a team of security engineers in penetration testing, secure coding, and enhancing the security of web and mobile applications.
 
