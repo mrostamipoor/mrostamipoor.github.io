@@ -1,6 +1,7 @@
 ---
 # Display name
 title: Maryam Rostamipoor
+summary: "Ph.D. candidate in Computer Science at Stony Brook University specializing in cloud, container, and application security — with over 10 years of research and industry experience."
 
 # Username (this should match the folder name)
 authors:
@@ -25,6 +26,11 @@ interests:
 - Binary Analysis & System Call Filtering
 - Web & Mobile Application Penetration Testing
 
+tags:
+- Kubernetes Security
+- Cloud Computing
+- Binary Analysis
+- Application Security
 
 education:
   courses:
@@ -69,11 +75,15 @@ social:
 # Enter email to display Gravatar (if Gravatar enabled in Config)
 email: "mrostamipoor@cs.stonybrook.edu"
 
+avatar:
+  image: "avatar.jpg"   # place file at content/authors/admin/avatar.jpg
+  shape: circle
 # Organizational groups that you belong to (for People widget)
 #   Set this to `[]` or comment out if you are not using People widget.
 user_groups:
 - Principal Investigators
 ---
+
 
 I am a Ph.D. candidate in Computer Science at Stony Brook University, advised by [Dr. Michalis Polychronakis](https://www3.cs.stonybrook.edu/~mikepo/), and a Security Researcher with over 10 years of combined research and industry experience in cloud, container, and application security. My work focuses on scalable defenses against data leakage in cloud-native and serverless environments, with expertise in program analysis, vulnerability discovery, and secure software design. I leverage Python, Go, Rust, Kubernetes, and CodeQL to design and implement security tools, applying them in projects on Kubernetes secret protection, serverless memory safety, and container hardening—translating cutting-edge research into practical security solutions.
 
