@@ -1,0 +1,18 @@
+# Theme metadata
+name = "Security"
+
+# Is theme light or dark?
+light = true
+
+# Primary color — deep navy blue
+primary = "#1565c0"
+
+# Menu — clean white navbar (Minimal-style)
+menu_primary = "#ffffff"
+menu_text = "#2d3748"
+menu_text_active = "#1565c0"
+menu_title = "#1a202c"
+
+# Home sections — white / very-light-blue alternating
+home_section_odd = "rgb(255, 255, 255)"
+home_section_even = "rgb(246, 249, 254)"

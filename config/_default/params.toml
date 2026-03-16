@@ -13,7 +13,7 @@
 #   Latest themes (may require updating): https://sourcethemes.com/academic/themes/
 #   Browse built-in themes in `themes/academic/data/themes/`
 #   Browse user installed themes in `data/themes/`
-theme = "Minimal"
+theme = "Security"
 
 
 # Enable users to switch between day and night mode?
@@ -27,7 +27,7 @@ font = "Classic"
 
 # Choose a font size.
 # Sizes: XS (extra small), S (small), M (medium), L (large - DEFAULT), XL (extra large)
-font_size = "XS"
+font_size = "M"
 
 ############################
 ## Basic Info
