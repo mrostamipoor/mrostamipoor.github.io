@@ -43,7 +43,6 @@
         "name": "Maryam Rostamipoor",
         "url": "https://mrostamipoor.github.io/",
         "image": "https://mrostamipoor.github.io/img/avatar.jpg",
-        "email": "mrostamipoor@cs.stonybrook.edu",
         "jobTitle": "Security Engineer, Security Researcher, and Applied Scientist",
         "description": "Security Engineer and PhD researcher at Stony Brook University specializing in cloud security, Kubernetes hardening, secrets management, penetration testing, and static analysis. Author of LeakLess (NDSS 2025) and KubeKeeper (EuroS&P 2025).",
         "affiliation": {
@@ -575,7 +574,7 @@
       <div class="about-photo-wrap">
         <img src="img/avatar.jpg" alt="Maryam Rostamipoor" class="about-photo">
         <div class="about-socials">
-          <a href="mailto:mrostamipoor@cs.stonybrook.edu" class="social-btn"><i class="fas fa-envelope"></i> Email</a>
+          <a class="social-btn email-reveal" data-u="mrostamipoor" data-d="cs.stonybrook.edu"><i class="fas fa-envelope"></i> Email</a>
           <a href="https://github.com/mrostamipoor" class="social-btn" target="_blank" rel="noopener"><i class="fab fa-github"></i> GitHub</a>
           <a href="https://www.linkedin.com/in/maryam-rostamipoor/" class="social-btn" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i> LinkedIn</a>
           <a href="https://scholar.google.com/citations?user=jUJfU5QAAAAJ&hl=en" class="social-btn" target="_blank" rel="noopener"><i class="ai ai-google-scholar"></i> Scholar</a>
@@ -873,8 +872,8 @@
     <p class="section-label">Contact</p>
     <h2 class="section-title">Let's Connect</h2>
     <p class="contact-sub">Open to Security Engineering, Security Research, and Applied Scientist roles. Graduating May 2026 — feel free to reach out.</p>
-    <a href="mailto:mrostamipoor@cs.stonybrook.edu" class="contact-email">
-      <i class="fas fa-envelope"></i> mrostamipoor@cs.stonybrook.edu
+    <a class="contact-email email-reveal" data-u="mrostamipoor" data-d="cs.stonybrook.edu">
+      <i class="fas fa-envelope"></i> <span class="email-text"></span>
     </a>
     <div class="contact-socials">
       <a href="https://github.com/mrostamipoor" class="csocial" target="_blank" rel="noopener"><i class="fab fa-github"></i> GitHub</a>
@@ -892,6 +891,14 @@
 </footer>
 
 <script>
+  // Assemble email addresses from data attributes (bot protection)
+  document.querySelectorAll('.email-reveal').forEach(el => {
+    const addr = el.dataset.u + '@' + el.dataset.d;
+    el.href = 'mailto:' + addr;
+    const txt = el.querySelector('.email-text');
+    if (txt) txt.textContent = addr;
+  });
+
   // Navbar scroll shadow
   const nav = document.getElementById('nav');
   window.addEventListener('scroll', () => {
