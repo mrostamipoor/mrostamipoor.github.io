@@ -19,7 +19,7 @@ url_code: https://github.com/mrostamipoor/KubeKeeper
 image:
   caption: ""
   focal_point: ""
-  preview_only: false
+  preview_only: true
 
 slides: ""
 ---

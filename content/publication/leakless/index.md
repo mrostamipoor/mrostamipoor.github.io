@@ -20,7 +20,7 @@ url_dataset: https://github.com/mrostamipoor/LeakLess/tree/main/leakless-dataset
 image:
   caption: ""
   focal_point: ""
-  preview_only: false
+  preview_only: true
 
 slides: ""
 ---
