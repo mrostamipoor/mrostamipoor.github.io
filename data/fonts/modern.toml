@@ -1,0 +1,9 @@
+# Modern tech font — Inter (used by Linear, Vercel, Stripe, and many big tech products)
+name = "Modern"
+
+google_fonts = "Inter:300,400,500,600,700|JetBrains+Mono:400,500"
+
+heading_font = "Inter"
+body_font    = "Inter"
+nav_font     = "Inter"
+mono_font    = "JetBrains Mono"

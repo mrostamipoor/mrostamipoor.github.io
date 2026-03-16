@@ -1,18 +1,18 @@
 # Theme metadata
 name = "Security"
 
-# Is theme light or dark?
+# Light theme
 light = true
 
-# Primary color — deep navy blue
-primary = "#1565c0"
+# Primary — Tailwind Blue 600, clean and modern
+primary = "#2563eb"
 
-# Menu — clean white navbar (Minimal-style)
-menu_primary = "#ffffff"
-menu_text = "#2d3748"
-menu_text_active = "#1565c0"
-menu_title = "#1a202c"
+# Navbar — white with dark text
+menu_primary      = "#ffffff"
+menu_text         = "#374151"
+menu_text_active  = "#2563eb"
+menu_title        = "#111827"
 
-# Home sections — white / very-light-blue alternating
-home_section_odd = "rgb(255, 255, 255)"
-home_section_even = "rgb(246, 249, 254)"
+# Home sections — pure white / very-light-grey
+home_section_odd  = "rgb(255, 255, 255)"
+home_section_even = "rgb(249, 250, 251)"

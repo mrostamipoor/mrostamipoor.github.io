@@ -1,67 +1,319 @@
 // ============================================================
-//  Custom styles for mrostamipoor.github.io
+//  mrostamipoor.github.io — Full custom design
+//  Font: Inter  |  Theme: Security (primary #2563eb)
 // ============================================================
+
+// ---- Global typography -------------------------------------
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  color: #111827;
+  letter-spacing: -0.005em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  color: #111827;
+  letter-spacing: -0.02em;
+}
+
+p { line-height: 1.8; }
+
+a { transition: color 0.15s ease; }
 
 // ---- Layout ------------------------------------------------
 .container,
 .article-container {
-  max-width: 1080px;
-  padding: 0 24px;
+  max-width: 1100px;
+  padding: 0 28px;
   margin: 0 auto;
-}
-
-// ---- Home sections -----------------------------------------
-.home-section {
-  padding: 64px 0;
-}
-.home-section:first-of-type {
-  padding-top: 48px;
-}
-@media screen and (max-width: 768px) {
-  .home-section {
-    padding: 44px 0;
-  }
 }
 
 // ---- Navbar ------------------------------------------------
 .navbar {
-  box-shadow: 0 1px 10px rgba(0, 0, 0, 0.07);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.08);
+  backdrop-filter: blur(8px);
+  background: rgba(255, 255, 255, 0.95) !important;
+}
+.navbar-light .navbar-brand {
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  font-size: 1.1rem;
 }
 .navbar-light .navbar-nav .nav-link {
   font-weight: 500;
+  font-size: 0.88rem;
   letter-spacing: 0.01em;
-  padding: 6px 12px;
-  border-radius: 4px;
-  transition: background 0.2s ease, color 0.2s ease;
+  padding: 6px 14px;
+  border-radius: 6px;
+  transition: background 0.15s ease, color 0.15s ease;
 }
 .navbar-light .navbar-nav .nav-link:hover {
-  background: rgba(21, 101, 192, 0.06);
+  background: rgba(37, 99, 235, 0.07);
 }
 
-// ---- Profile photo -----------------------------------------
+// ---- Home sections -----------------------------------------
+.home-section {
+  padding: 72px 0;
+}
+.home-section:first-of-type {
+  padding-top: 0;
+}
+@media screen and (max-width: 768px) {
+  .home-section { padding: 48px 0; }
+}
+
+// ---- Section headings --------------------------------------
+.section-heading h1 {
+  position: relative;
+  display: inline-block;
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  padding-bottom: 14px;
+  margin-bottom: 6px;
+  color: #111827;
+}
+.section-heading h1::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 40px;
+  height: 3px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, #2563eb, #60a5fa);
+}
+.section-heading p {
+  color: #6b7280;
+  font-size: 0.95rem;
+}
+
+// ===========================================================
+//  HERO / SPLASH SECTION
+// ===========================================================
+.hero-splash {
+  background: linear-gradient(135deg, #0d1b2a 0%, #1e3358 60%, #0d1b2a 100%);
+  position: relative;
+  overflow: hidden;
+}
+// Subtle grid overlay
+.hero-splash::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+}
+// Glow accent
+.hero-splash::after {
+  content: '';
+  position: absolute;
+  top: -120px;
+  right: -120px;
+  width: 480px;
+  height: 480px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(37,99,235,0.18) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.splash-inner {
+  position: relative;
+  z-index: 1;
+  padding: 88px 28px 72px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.splash-eyebrow {
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.55);
+  margin-bottom: 20px;
+}
+
+.splash-name {
+  font-size: clamp(2.4rem, 6vw, 4rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1.05;
+  color: #ffffff;
+  margin-bottom: 20px;
+}
+
+.splash-tagline {
+  font-size: clamp(1rem, 2vw, 1.15rem);
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.7);
+  max-width: 620px;
+  line-height: 1.7;
+  margin-bottom: 28px;
+}
+
+// Publication / award badges
+.splash-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 36px;
+}
+.splash-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 5px 14px;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.85);
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.12);
+  text-decoration: none !important;
+  transition: background 0.15s ease, border-color 0.15s ease;
+  letter-spacing: 0.01em;
+}
+.splash-badge:hover {
+  background: rgba(255,255,255,0.14);
+  border-color: rgba(255,255,255,0.22);
+  color: #ffffff !important;
+  text-decoration: none !important;
+}
+.sbadge-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.sbadge-blue   { background: #60a5fa; }
+.sbadge-teal   { background: #34d399; }
+.sbadge-gold   { background: #fbbf24; }
+
+// CTA buttons
+.splash-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 60px;
+}
+.splash-btn-primary {
+  background: #2563eb;
+  color: #ffffff !important;
+  border: 1.5px solid #2563eb;
+  padding: 11px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: background 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+  text-decoration: none !important;
+}
+.splash-btn-primary:hover {
+  background: #1d4ed8;
+  border-color: #1d4ed8;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(37,99,235,0.45);
+  color: #ffffff !important;
+}
+.splash-btn-secondary {
+  background: transparent;
+  color: rgba(255,255,255,0.88) !important;
+  border: 1.5px solid rgba(255,255,255,0.25);
+  padding: 11px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: background 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
+  text-decoration: none !important;
+}
+.splash-btn-secondary:hover {
+  background: rgba(255,255,255,0.1);
+  border-color: rgba(255,255,255,0.45);
+  transform: translateY(-2px);
+  color: #ffffff !important;
+}
+.splash-btn-ghost {
+  background: transparent;
+  color: rgba(255,255,255,0.55) !important;
+  border: 1.5px solid transparent;
+  padding: 11px 18px;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 0.9rem;
+  transition: color 0.15s ease;
+  text-decoration: none !important;
+}
+.splash-btn-ghost:hover {
+  color: rgba(255,255,255,0.88) !important;
+}
+
+// Stats row
+.splash-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
+  padding-top: 40px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+.splash-stat {
+  flex: 1;
+  min-width: 120px;
+  padding: 0 32px 0 0;
+  margin-bottom: 16px;
+}
+.sstat-value {
+  display: block;
+  font-size: 1.9rem;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+}
+.sstat-plus {
+  font-size: 1.2rem;
+  color: #60a5fa;
+}
+.sstat-label {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: rgba(255,255,255,0.45);
+  margin-top: 5px;
+  text-transform: uppercase;
+  line-height: 1.4;
+}
+@media screen and (max-width: 600px) {
+  .splash-inner { padding: 60px 20px 48px; }
+  .splash-stats { gap: 16px; }
+  .splash-stat  { min-width: 100px; padding-right: 0; flex: 0 0 45%; }
+}
+
+// ===========================================================
+//  ABOUT SECTION
+// ===========================================================
 .portrait img {
-  border: 4px solid $sta-primary;
-  box-shadow: 0 8px 32px rgba(21, 101, 192, 0.18);
+  border: 3px solid #2563eb;
+  box-shadow: 0 8px 32px rgba(37,99,235,0.16);
   transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 .portrait img:hover {
-  box-shadow: 0 12px 40px rgba(21, 101, 192, 0.28);
-  transform: translateY(-3px);
+  box-shadow: 0 12px 40px rgba(37,99,235,0.28);
+  transform: translateY(-4px);
 }
-
-// ---- Profile title / role ----------------------------------
 .portrait-title h2 {
-  color: $sta-primary;
+  color: #2563eb;
   font-weight: 600;
-  font-size: 1rem;
-  line-height: 1.5;
-  margin-top: 4px;
-}
-
-// ---- Social icons ------------------------------------------
-ul.network-icon {
-  margin-top: 12px;
+  font-size: 0.95rem;
+  letter-spacing: 0.005em;
 }
 ul.network-icon li a {
   transition: transform 0.2s ease, color 0.2s ease;
@@ -69,243 +321,303 @@ ul.network-icon li a {
 }
 ul.network-icon li a:hover {
   transform: translateY(-4px);
-  color: $sta-primary !important;
+}
+#about .article-style p { line-height: 1.85; }
+#about .article-style li { margin-bottom: 6px; }
+
+// ===========================================================
+//  RESEARCH / PROJECT CARDS
+// ===========================================================
+.research-section .section-heading h1 { margin-bottom: 36px; }
+
+.research-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+@media screen and (max-width: 768px) {
+  .research-grid { grid-template-columns: 1fr; }
 }
 
-// ---- Section headings --------------------------------------
-.section-heading h1 {
+.rc {
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  padding: 28px 28px 24px;
+  text-decoration: none !important;
+  color: inherit !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
   position: relative;
-  display: inline-block;
-  font-weight: 700;
-  font-size: 1.55rem;
-  letter-spacing: -0.01em;
-  padding-bottom: 14px;
-  margin-bottom: 4px;
+  overflow: hidden;
 }
-.section-heading h1::after {
+.rc::before {
   content: '';
   position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 44px;
+  top: 0; left: 0; right: 0;
   height: 3px;
-  background: linear-gradient(90deg, $sta-primary, $sta-primary-light);
-  border-radius: 2px;
+  background: linear-gradient(90deg, #2563eb, #60a5fa);
+  opacity: 0;
+  transition: opacity 0.2s ease;
 }
+.rc:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 36px rgba(0,0,0,0.1);
+  border-color: #bfdbfe;
+  text-decoration: none !important;
+}
+.rc:hover::before { opacity: 1; }
 
-// ---- About body text ---------------------------------------
-#about .article-style p {
-  text-align: justify;
-  line-height: 1.8;
-  margin-bottom: 1rem;
+.rc-top {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
 }
-#about .article-style ul {
-  padding-left: 1.2rem;
-}
-#about .article-style li {
-  margin-bottom: 6px;
-  line-height: 1.75;
-}
-
-// ---- News — timeline style ---------------------------------
-#news .section-heading h1::after {
-  background: linear-gradient(90deg, $sta-primary, $sta-primary-light);
-}
-#news h2 {
-  font-size: 0.78rem;
+.rc-venue {
+  font-size: 0.72rem;
   font-weight: 700;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
-  color: $sta-primary;
-  margin-top: 1.6rem;
-  margin-bottom: 0.5rem;
+  padding: 3px 10px;
+  border-radius: 999px;
 }
-#news ul {
-  list-style: none;
-  padding-left: 22px;
-  margin-bottom: 4px;
-  border-left: 2px solid rgba(21, 101, 192, 0.2);
-}
-#news ul li {
-  position: relative;
-  padding: 5px 0 5px 14px;
-  line-height: 1.65;
-  color: rgba(0, 0, 0, 0.75);
-}
-#news ul li::before {
-  content: '';
-  width: 9px;
-  height: 9px;
-  border-radius: 50%;
-  background: $sta-primary;
-  border: 2px solid white;
-  box-shadow: 0 0 0 1.5px $sta-primary;
-  position: absolute;
-  left: -27px;
-  top: 10px;
-}
+.rv-blue   { background: #dbeafe; color: #1d4ed8; }
+.rv-teal   { background: #d1fae5; color: #065f46; }
+.rv-orange { background: #ffedd5; color: #9a3412; }
+.rv-purple { background: #ede9fe; color: #5b21b6; }
 
-// ---- Publications ------------------------------------------
-.pub-list-item {
-  border-left: 3px solid $sta-primary;
-  padding-left: 20px;
-  margin-bottom: 28px;
-  transition: border-color 0.25s ease, transform 0.2s ease;
+.rc-tag {
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: #6b7280;
+  background: #f3f4f6;
+  padding: 3px 10px;
+  border-radius: 999px;
 }
-.pub-list-item:hover {
-  border-left-color: $sta-primary-light;
-  transform: translateX(3px);
+.rc-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #111827;
+  margin: 0 0 10px;
 }
-.pub-list-item .article-metadata {
-  font-size: 0.82rem;
-  color: #6c757d;
+.rc-desc {
+  font-size: 0.88rem;
+  color: #4b5563;
+  line-height: 1.7;
+  flex: 1;
+  margin-bottom: 20px;
 }
-.pub-list-item h3.article-title {
-  font-size: 1rem;
+.rc-metrics {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 20px;
+  padding: 14px 0;
+  border-top: 1px solid #f3f4f6;
+  border-bottom: 1px solid #f3f4f6;
+}
+.rc-metric {
+  display: flex;
+  flex-direction: column;
+}
+.rc-metric strong {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #2563eb;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+}
+.rc-metric span {
+  font-size: 0.7rem;
+  color: #9ca3af;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-top: 2px;
+}
+.rc-footer {
+  display: flex;
+  gap: 16px;
+  margin-top: auto;
+}
+.rc-link {
+  font-size: 0.8rem;
   font-weight: 600;
-  margin-bottom: 4px;
+  color: #2563eb;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.rc-link-muted {
+  color: #9ca3af;
 }
 
-// ---- Skills / featurette -----------------------------------
-.featurette {
-  padding: 28px 20px;
+// ===========================================================
+//  EXPERIENCE SECTION
+// ===========================================================
+.experience .card {
+  border: 1px solid #e5e7eb;
   border-radius: 10px;
-  text-align: center;
-  transition: background 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+  box-shadow: none;
+  transition: box-shadow 0.2s ease;
+}
+.experience .card:hover {
+  box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+}
+.experience .exp-title { font-weight: 700; }
+
+// ===========================================================
+//  SKILLS / FEATURETTE
+// ===========================================================
+.featurette {
+  padding: 32px 24px;
+  border-radius: 14px;
+  border: 1px solid #e5e7eb;
+  background: #ffffff;
+  text-align: left;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
 .featurette:hover {
-  background: rgba(21, 101, 192, 0.04);
-  box-shadow: 0 4px 20px rgba(21, 101, 192, 0.12);
-  transform: translateY(-4px);
+  transform: translateY(-5px);
+  box-shadow: 0 8px 28px rgba(37,99,235,0.1);
+  border-color: #bfdbfe;
 }
 .featurette-icon {
-  color: $sta-primary !important;
-  transition: transform 0.25s ease;
+  color: #2563eb !important;
+  transition: transform 0.2s ease;
 }
-.featurette:hover .featurette-icon {
-  transform: scale(1.12);
-}
+.featurette:hover .featurette-icon { transform: scale(1.1); }
 .featurette h3 {
   font-size: 1rem;
   font-weight: 700;
-  margin-top: 10px;
+  margin-top: 14px;
   margin-bottom: 8px;
-  color: #1a202c;
+  letter-spacing: -0.01em;
 }
 .featurette p {
   font-size: 0.85rem;
-  color: #4a5568;
-  line-height: 1.65;
+  color: #4b5563;
+  line-height: 1.7;
 }
 
-// ---- Experience widget timeline ----------------------------
-.experience .card-body {
-  padding: 16px 20px;
+// ===========================================================
+//  NEWS — TIMELINE
+// ===========================================================
+#news h2 {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #2563eb;
+  margin-top: 2rem;
+  margin-bottom: 0.6rem;
 }
-.experience .experience-org {
-  color: $sta-primary;
+#news ul {
+  list-style: none;
+  padding-left: 24px;
+  border-left: 2px solid #dbeafe;
+  margin-bottom: 4px;
+}
+#news ul li {
+  position: relative;
+  padding: 5px 0 5px 16px;
+  line-height: 1.7;
+  color: #374151;
+  font-size: 0.9rem;
+}
+#news ul li::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #2563eb;
+  border: 2px solid #ffffff;
+  box-shadow: 0 0 0 1.5px #2563eb;
+  position: absolute;
+  left: -29px;
+  top: 11px;
+}
+
+// ===========================================================
+//  PUBLICATIONS
+// ===========================================================
+.pub-list-item {
+  border-left: 3px solid #2563eb;
+  padding-left: 20px;
+  margin-bottom: 28px;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+.pub-list-item:hover {
+  border-left-color: #60a5fa;
+  transform: translateX(4px);
+}
+.pub-list-item h3.article-title {
+  font-size: 0.98rem;
   font-weight: 600;
+  letter-spacing: -0.01em;
+}
+.pub-list-item .article-metadata {
+  font-size: 0.82rem;
+  color: #6b7280;
 }
 
-// ---- Buttons -----------------------------------------------
+// ===========================================================
+//  BUTTONS
+// ===========================================================
 .btn {
-  border-radius: 5px;
-  font-weight: 500;
-  letter-spacing: 0.02em;
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  border-radius: 7px;
+  font-weight: 600;
+  font-size: 0.82rem;
+  letter-spacing: 0.01em;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
 }
 .btn-primary:hover {
   transform: translateY(-1px);
-  box-shadow: 0 4px 14px rgba(21, 101, 192, 0.32);
+  box-shadow: 0 4px 14px rgba(37,99,235,0.35);
 }
 .btn-outline-primary:hover {
   transform: translateY(-1px);
-  box-shadow: 0 4px 14px rgba(21, 101, 192, 0.2);
+  box-shadow: 0 4px 14px rgba(37,99,235,0.2);
 }
 
-// ---- Tags / badges -----------------------------------------
+// ===========================================================
+//  BADGES / TAGS
+// ===========================================================
 .badge-light {
-  background: rgba(21, 101, 192, 0.08);
-  color: $sta-primary;
-  border-radius: 4px;
+  background: #eff6ff;
+  color: #1d4ed8;
+  border-radius: 5px;
   font-weight: 500;
+  font-size: 0.75rem;
   padding: 4px 10px;
-  transition: background 0.2s ease;
+  transition: background 0.15s ease;
 }
 .badge-light:hover,
 .badge-light[href]:hover {
-  background: rgba(21, 101, 192, 0.16);
-  color: $sta-primary-dark;
+  background: #dbeafe;
+  color: #1d4ed8;
 }
 
-// ---- Links -------------------------------------------------
-a {
-  transition: color 0.15s ease;
-}
+// ===========================================================
+//  CONTACT SECTION
+// ===========================================================
+#contact .section-heading h1 { margin-bottom: 28px; }
 
-// ---- Footer ------------------------------------------------
+// ===========================================================
+//  FOOTER
+// ===========================================================
 footer {
-  border-top: 1px solid rgba(0, 0, 0, 0.06);
-  background: #f8faff;
-  margin-top: 2rem;
+  border-top: 1px solid #f3f4f6;
+  background: #fafafa;
+  margin-top: 0;
+  padding: 28px 0;
 }
 footer p {
-  color: #718096;
-}
-
-// ---- Highlights stats strip --------------------------------
-.highlights-strip {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 0;
-  width: 100%;
-}
-.highlight-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 8px 40px;
-  border-right: 1px solid rgba(255, 255, 255, 0.2);
-  color: white;
-}
-.highlight-item:last-child {
-  border-right: none;
-}
-.highlight-number {
-  font-size: 2rem;
-  font-weight: 700;
-  line-height: 1.1;
-  color: #ffffff;
-  letter-spacing: -0.02em;
-}
-.highlight-label {
-  font-size: 0.72rem;
-  font-weight: 500;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.78);
-  margin-top: 4px;
-}
-@media screen and (max-width: 640px) {
-  .highlight-item {
-    padding: 10px 20px;
-    border-right: none;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-    width: 50%;
-  }
-  .highlight-item:nth-child(odd) {
-    border-right: 1px solid rgba(255, 255, 255, 0.15);
-  }
-  .highlight-item:last-child {
-    width: 100%;
-    border-right: none;
-    border-bottom: none;
-  }
+  color: #9ca3af;
+  font-size: 0.8rem;
 }
 
 // ---- Utility -----------------------------------------------
-.justify-text {
-  text-align: justify;
-}
+.justify-text { text-align: justify; }
