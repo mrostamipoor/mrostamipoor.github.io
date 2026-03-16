@@ -49,7 +49,7 @@ local_business_type = ""
 org_name = ""
 
 # Description for social sharing and search engines. If undefined, superuser role is used in place.
-description = "Official website of Maryam Rostamipoor — research, publications, and projects in computer science."
+description = "Maryam Rostamipoor — Security Engineer and PhD researcher at Stony Brook University specializing in cloud security, Kubernetes hardening, secrets management, penetration testing, and static analysis. Author of LeakLess (NDSS 2025), KubeKeeper (EuroS&P 2025), and Confine."
 
 ############################
 ## Site Features
