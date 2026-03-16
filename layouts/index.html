@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Maryam Rostamipoor — Security Engineer &amp; Researcher</title>
+  <meta name="description" content="Maryam Rostamipoor — Security Engineer and PhD researcher at Stony Brook University. Specializes in cloud security, Kubernetes, secrets management, and penetration testing. Author of LeakLess (NDSS 2025) and KubeKeeper (EuroS&P 2025).">
+  <link rel="canonical" href="https://mrostamipoor.github.io/">
+  <meta property="og:title" content="Maryam Rostamipoor — Security Engineer &amp; Researcher">
+  <meta property="og:description" content="Security Engineer with 8+ years of experience. PhD candidate at Stony Brook University. NDSS 2025, EuroS&P 2025.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://mrostamipoor.github.io/">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:creator" content="@MRostamipoor">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.4/css/academicons.min.css">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --hero-bg: #080f1e;
+      --hero-bg2: #0f1e3d;
+      --blue: #2563eb;
+      --blue-light: #60a5fa;
+      --blue-dark: #1d4ed8;
+      --teal: #0d9488;
+      --gold: #d97706;
+      --purple: #7c3aed;
+      --white: #ffffff;
+      --text: #111827;
+      --text-2: #374151;
+      --text-3: #6b7280;
+      --text-4: #9ca3af;
+      --border: #e5e7eb;
+      --bg-alt: #f8fafc;
+      --radius: 14px;
+      --radius-sm: 8px;
+      --shadow: 0 4px 20px rgba(0,0,0,0.08);
+      --shadow-lg: 0 12px 40px rgba(0,0,0,0.12);
+    }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+    body { font-family: 'Inter', sans-serif; color: var(--text); background: #fff; line-height: 1.6; }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+    .container { max-width: 1080px; margin: 0 auto; padding: 0 28px; }
+    section { padding: 88px 0; }
+
+    /* ── NAV ──────────────────────────────────────────── */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      transition: box-shadow .2s;
+    }
+    .nav.scrolled { box-shadow: 0 2px 16px rgba(0,0,0,0.08); }
+    .nav-inner {
+      max-width: 1080px; margin: 0 auto; padding: 0 28px;
+      height: 60px; display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo { font-weight: 700; font-size: .95rem; letter-spacing: -.02em; color: var(--text); }
+    .nav-links { display: flex; align-items: center; gap: 4px; }
+    .nav-links a {
+      font-size: .84rem; font-weight: 500; color: var(--text-2);
+      padding: 6px 12px; border-radius: 6px;
+      transition: background .15s, color .15s;
+    }
+    .nav-links a:hover { background: #f1f5f9; color: var(--text); }
+    .nav-cta {
+      background: var(--blue) !important; color: #fff !important;
+      padding: 6px 16px !important; border-radius: 7px !important;
+      font-weight: 600 !important; transition: background .15s, transform .15s !important;
+    }
+    .nav-cta:hover { background: var(--blue-dark) !important; transform: translateY(-1px); }
+    .nav-toggle { display: none; background: none; border: none; cursor: pointer; font-size: 1.3rem; color: var(--text); }
+    .mobile-nav {
+      display: none; flex-direction: column;
+      position: fixed; top: 60px; left: 0; right: 0; z-index: 99;
+      background: #fff; border-bottom: 1px solid var(--border);
+      padding: 12px 28px 20px;
+    }
+    .mobile-nav a {
+      padding: 10px 0; font-size: .95rem; font-weight: 500;
+      color: var(--text-2); border-bottom: 1px solid #f3f4f6;
+    }
+    .mobile-nav a:last-child { border-bottom: none; }
+    .mobile-nav.open { display: flex; }
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .nav-toggle { display: block; }
+    }
+
+    /* ── HERO ─────────────────────────────────────────── */
+    .hero {
+      min-height: 100vh; padding-top: 60px;
+      background: linear-gradient(135deg, var(--hero-bg) 0%, var(--hero-bg2) 60%, #0a1628 100%);
+      position: relative; overflow: hidden;
+      display: flex; align-items: center;
+    }
+    .hero-grid {
+      position: absolute; inset: 0; pointer-events: none;
+      background-image: linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
+      background-size: 48px 48px;
+    }
+    .hero-glow {
+      position: absolute; top: -200px; right: -100px;
+      width: 600px; height: 600px; border-radius: 50%; pointer-events: none;
+      background: radial-gradient(circle, rgba(37,99,235,.2) 0%, transparent 65%);
+    }
+    .hero-glow2 {
+      position: absolute; bottom: -150px; left: -150px;
+      width: 400px; height: 400px; border-radius: 50%; pointer-events: none;
+      background: radial-gradient(circle, rgba(13,148,136,.12) 0%, transparent 65%);
+    }
+    .hero-inner { position: relative; z-index: 1; padding: 60px 28px 80px; max-width: 1080px; margin: 0 auto; }
+    .hero-eyebrow {
+      font-size: .75rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase;
+      color: var(--blue-light); margin-bottom: 20px;
+    }
+    .hero-name {
+      font-size: clamp(2.8rem, 7vw, 5.2rem); font-weight: 900;
+      letter-spacing: -.04em; line-height: 1.02; color: #fff; margin-bottom: 24px;
+    }
+    .hero-name span { color: var(--blue-light); }
+    .hero-tagline {
+      font-size: clamp(.95rem, 2vw, 1.15rem); font-weight: 400;
+      color: rgba(255,255,255,.65); max-width: 560px; line-height: 1.75; margin-bottom: 32px;
+    }
+    .hero-badges { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 36px; }
+    .hbadge {
+      display: inline-flex; align-items: center; gap: 7px;
+      padding: 5px 14px; border-radius: 999px; font-size: .76rem; font-weight: 600;
+      border: 1px solid rgba(255,255,255,.12); color: rgba(255,255,255,.8);
+      background: rgba(255,255,255,.07); transition: background .15s, color .15s;
+      letter-spacing: .01em;
+    }
+    .hbadge:hover { background: rgba(255,255,255,.13); color: #fff; }
+    .hbadge-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+    .hbadge-blue .hbadge-dot  { background: var(--blue-light); }
+    .hbadge-teal .hbadge-dot  { background: #34d399; }
+    .hbadge-gold .hbadge-dot  { background: #fbbf24; }
+    .hero-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 64px; }
+    .btn-hero-primary {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--blue); color: #fff; padding: 12px 26px;
+      border-radius: var(--radius-sm); font-weight: 700; font-size: .88rem;
+      transition: background .15s, transform .15s, box-shadow .15s;
+    }
+    .btn-hero-primary:hover { background: var(--blue-dark); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(37,99,235,.45); color: #fff; }
+    .btn-hero-secondary {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(255,255,255,.08); color: rgba(255,255,255,.85);
+      border: 1px solid rgba(255,255,255,.2); padding: 12px 26px;
+      border-radius: var(--radius-sm); font-weight: 600; font-size: .88rem;
+      transition: background .15s, transform .15s;
+    }
+    .btn-hero-secondary:hover { background: rgba(255,255,255,.14); transform: translateY(-2px); color: #fff; }
+    .btn-hero-ghost {
+      display: inline-flex; align-items: center; gap: 6px;
+      color: rgba(255,255,255,.5); padding: 12px 18px;
+      font-weight: 500; font-size: .88rem; transition: color .15s;
+    }
+    .btn-hero-ghost:hover { color: rgba(255,255,255,.85); }
+    .hero-stats {
+      display: flex; flex-wrap: wrap; gap: 0;
+      padding-top: 40px; border-top: 1px solid rgba(255,255,255,.1);
+    }
+    .hstat { flex: 1; min-width: 110px; padding-right: 32px; margin-bottom: 12px; }
+    .hstat-val {
+      display: block; font-size: 2rem; font-weight: 900; color: #fff;
+      letter-spacing: -.04em; line-height: 1.1;
+    }
+    .hstat-val sup { font-size: 1.1rem; color: var(--blue-light); }
+    .hstat-label {
+      display: block; font-size: .67rem; font-weight: 600; text-transform: uppercase;
+      letter-spacing: .07em; color: rgba(255,255,255,.4); margin-top: 4px; line-height: 1.4;
+    }
+    @media (max-width: 600px) {
+      .hero-inner { padding: 48px 20px 60px; }
+      .hstat { min-width: 90px; padding-right: 16px; }
+      .hstat-val { font-size: 1.5rem; }
+    }
+
+    /* ── SECTION SHARED ───────────────────────────────── */
+    .section-label {
+      font-size: .72rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
+      color: var(--blue); margin-bottom: 10px;
+    }
+    .section-title {
+      font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 800;
+      letter-spacing: -.03em; color: var(--text); margin-bottom: 8px;
+    }
+    .section-sub { font-size: .95rem; color: var(--text-3); max-width: 560px; line-height: 1.7; }
+    .section-head { margin-bottom: 48px; }
+
+    /* ── ABOUT ────────────────────────────────────────── */
+    .about { background: var(--bg-alt); }
+    .about-grid { display: grid; grid-template-columns: 280px 1fr; gap: 64px; align-items: start; }
+    .about-photo-wrap { position: sticky; top: 80px; }
+    .about-photo {
+      width: 100%; border-radius: var(--radius); object-fit: cover;
+      border: 3px solid var(--blue); box-shadow: 0 12px 40px rgba(37,99,235,.18);
+      transition: transform .3s, box-shadow .3s;
+    }
+    .about-photo:hover { transform: translateY(-4px); box-shadow: 0 20px 50px rgba(37,99,235,.25); }
+    .about-socials { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
+    .social-btn {
+      display: inline-flex; align-items: center; gap: 7px;
+      padding: 7px 14px; border-radius: var(--radius-sm); font-size: .8rem; font-weight: 600;
+      background: #fff; border: 1px solid var(--border); color: var(--text-2);
+      transition: border-color .15s, color .15s, transform .15s;
+    }
+    .social-btn:hover { border-color: var(--blue); color: var(--blue); transform: translateY(-2px); }
+    .about-text p { font-size: .97rem; line-height: 1.85; color: var(--text-2); margin-bottom: 20px; }
+    .about-text strong { color: var(--text); font-weight: 600; }
+    .about-interests { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 28px; }
+    .interest-tag {
+      padding: 5px 13px; border-radius: 999px; font-size: .78rem; font-weight: 600;
+      background: #eff6ff; color: var(--blue); border: 1px solid #bfdbfe;
+    }
+    @media (max-width: 768px) {
+      .about-grid { grid-template-columns: 1fr; gap: 36px; }
+      .about-photo-wrap { position: static; max-width: 220px; }
+    }
+
+    /* ── RESEARCH CARDS ───────────────────────────────── */
+    .research { background: #fff; }
+    .rc-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+    .rc-card {
+      display: flex; flex-direction: column;
+      border: 1px solid var(--border); border-radius: var(--radius);
+      padding: 28px; background: #fff; position: relative; overflow: hidden;
+      transition: transform .2s, box-shadow .2s, border-color .2s;
+      color: inherit;
+    }
+    .rc-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      opacity: 0; transition: opacity .2s;
+    }
+    .rc-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); border-color: #bfdbfe; }
+    .rc-card:hover::before { opacity: 1; }
+    .rc-blue::before   { background: linear-gradient(90deg, var(--blue), var(--blue-light)); }
+    .rc-teal::before   { background: linear-gradient(90deg, #0d9488, #34d399); }
+    .rc-orange::before { background: linear-gradient(90deg, #ea580c, #fb923c); }
+    .rc-purple::before { background: linear-gradient(90deg, var(--purple), #a78bfa); }
+    .rc-top { display: flex; align-items: center; gap: 8px; margin-bottom: 14px; }
+    .rc-venue {
+      font-size: .68rem; font-weight: 700; letter-spacing: .05em; text-transform: uppercase;
+      padding: 3px 10px; border-radius: 999px;
+    }
+    .rv-blue   { background: #dbeafe; color: #1d4ed8; }
+    .rv-teal   { background: #ccfbf1; color: #0f766e; }
+    .rv-orange { background: #ffedd5; color: #c2410c; }
+    .rv-purple { background: #ede9fe; color: #6d28d9; }
+    .rc-tag {
+      font-size: .68rem; font-weight: 500; padding: 3px 10px;
+      border-radius: 999px; background: #f3f4f6; color: var(--text-3);
+    }
+    .rc-title { font-size: 1.2rem; font-weight: 800; letter-spacing: -.02em; color: var(--text); margin-bottom: 10px; }
+    .rc-desc { font-size: .86rem; color: var(--text-3); line-height: 1.72; flex: 1; margin-bottom: 20px; }
+    .rc-metrics {
+      display: flex; gap: 24px; padding: 14px 0;
+      border-top: 1px solid #f3f4f6; border-bottom: 1px solid #f3f4f6; margin-bottom: 18px;
+    }
+    .rc-metric strong { display: block; font-size: 1.2rem; font-weight: 800; color: var(--blue); letter-spacing: -.02em; }
+    .rc-metric span { font-size: .67rem; text-transform: uppercase; letter-spacing: .06em; color: var(--text-4); font-weight: 600; }
+    .rc-links { display: flex; gap: 16px; margin-top: auto; }
+    .rc-link { font-size: .8rem; font-weight: 600; color: var(--blue); display: inline-flex; align-items: center; gap: 5px; }
+    .rc-link-muted { color: var(--text-4); }
+    @media (max-width: 768px) { .rc-grid { grid-template-columns: 1fr; } }
+
+    /* ── EXPERIENCE ───────────────────────────────────── */
+    .experience { background: var(--bg-alt); }
+    .exp-timeline { display: flex; flex-direction: column; gap: 0; }
+    .exp-item {
+      display: grid; grid-template-columns: 180px 1fr; gap: 0;
+      position: relative; padding-bottom: 40px;
+    }
+    .exp-item:last-child { padding-bottom: 0; }
+    .exp-left { padding-right: 32px; padding-top: 4px; }
+    .exp-date { font-size: .78rem; font-weight: 600; color: var(--text-3); letter-spacing: .01em; line-height: 1.5; }
+    .exp-right {
+      padding-left: 32px; padding-bottom: 40px;
+      border-left: 2px solid var(--border); position: relative;
+    }
+    .exp-item:last-child .exp-right { padding-bottom: 0; }
+    .exp-right::before {
+      content: ''; width: 10px; height: 10px; border-radius: 50%;
+      background: var(--blue); border: 2px solid #fff; box-shadow: 0 0 0 2px var(--blue);
+      position: absolute; left: -6px; top: 5px;
+    }
+    .exp-title { font-size: 1rem; font-weight: 700; color: var(--text); margin-bottom: 2px; }
+    .exp-company { font-size: .88rem; font-weight: 600; color: var(--blue); margin-bottom: 12px; }
+    .exp-desc { font-size: .88rem; color: var(--text-3); line-height: 1.75; }
+    .exp-desc li { margin-bottom: 6px; padding-left: 4px; }
+    @media (max-width: 640px) {
+      .exp-item { grid-template-columns: 1fr; }
+      .exp-left { padding-bottom: 8px; padding-right: 0; }
+      .exp-right { padding-left: 20px; }
+    }
+
+    /* ── SKILLS ───────────────────────────────────────── */
+    .skills { background: #fff; }
+    .skills-grid { display: flex; flex-direction: column; gap: 28px; }
+    .skill-group { display: flex; align-items: baseline; gap: 20px; flex-wrap: wrap; }
+    .skill-category {
+      font-size: .72rem; font-weight: 700; text-transform: uppercase; letter-spacing: .1em;
+      color: var(--text-3); min-width: 160px; padding-top: 6px;
+    }
+    .skill-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .stag {
+      padding: 5px 13px; border-radius: 7px; font-size: .8rem; font-weight: 500;
+      background: #f1f5f9; color: var(--text-2); border: 1px solid transparent;
+      transition: background .15s, border-color .15s, color .15s;
+    }
+    .stag:hover { background: #eff6ff; border-color: #bfdbfe; color: var(--blue); }
+    @media (max-width: 640px) { .skill-group { flex-direction: column; gap: 12px; } .skill-category { min-width: auto; } }
+
+    /* ── PUBLICATIONS ─────────────────────────────────── */
+    .publications { background: var(--bg-alt); }
+    .pub-list { display: flex; flex-direction: column; gap: 28px; }
+    .pub-item {
+      background: #fff; border: 1px solid var(--border); border-radius: var(--radius);
+      padding: 24px 28px; border-left: 4px solid var(--blue);
+      transition: transform .2s, box-shadow .2s;
+    }
+    .pub-item:hover { transform: translateX(4px); box-shadow: var(--shadow); }
+    .pub-item.pub-prep { border-left-color: var(--text-4); opacity: .8; }
+    .pub-meta { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; flex-wrap: wrap; }
+    .pub-venue {
+      font-size: .7rem; font-weight: 700; text-transform: uppercase; letter-spacing: .06em;
+      padding: 3px 10px; border-radius: 999px;
+    }
+    .pub-venue-ndss    { background: #dbeafe; color: #1d4ed8; }
+    .pub-venue-eurosp  { background: #ccfbf1; color: #0f766e; }
+    .pub-venue-cs      { background: #ede9fe; color: #6d28d9; }
+    .pub-venue-prep    { background: #f3f4f6; color: var(--text-3); }
+    .pub-year { font-size: .78rem; color: var(--text-4); font-weight: 500; }
+    .pub-title { font-size: .97rem; font-weight: 700; color: var(--text); margin-bottom: 6px; line-height: 1.45; }
+    .pub-authors { font-size: .82rem; color: var(--text-3); margin-bottom: 14px; line-height: 1.5; }
+    .pub-authors strong { color: var(--text-2); font-weight: 600; }
+    .pub-links { display: flex; gap: 12px; }
+    .pub-link {
+      font-size: .78rem; font-weight: 600; color: var(--blue);
+      display: inline-flex; align-items: center; gap: 5px;
+      padding: 4px 12px; border-radius: 6px; background: #eff6ff;
+      transition: background .15s;
+    }
+    .pub-link:hover { background: #dbeafe; }
+    .pub-link-ghost { background: #f3f4f6; color: var(--text-3); }
+    .pub-link-ghost:hover { background: #e5e7eb; color: var(--text-2); }
+
+    /* ── AWARDS ───────────────────────────────────────── */
+    .awards { background: #fff; }
+    .awards-list { display: flex; flex-direction: column; gap: 0; }
+    .award-item {
+      display: flex; align-items: center; gap: 20px;
+      padding: 18px 0; border-bottom: 1px solid #f3f4f6;
+    }
+    .award-item:last-child { border-bottom: none; }
+    .award-year {
+      font-size: .78rem; font-weight: 700; color: var(--blue);
+      background: #eff6ff; padding: 4px 10px; border-radius: 6px;
+      min-width: 52px; text-align: center; flex-shrink: 0;
+    }
+    .award-name { font-size: .93rem; font-weight: 600; color: var(--text); }
+    .award-org  { font-size: .82rem; color: var(--text-3); margin-top: 2px; }
+
+    /* ── CONTACT ──────────────────────────────────────── */
+    .contact {
+      background: linear-gradient(135deg, var(--hero-bg) 0%, var(--hero-bg2) 100%);
+      padding: 80px 0; text-align: center;
+    }
+    .contact .section-label { color: var(--blue-light); }
+    .contact .section-title { color: #fff; }
+    .contact-sub { font-size: 1rem; color: rgba(255,255,255,.6); max-width: 480px; margin: 12px auto 40px; line-height: 1.75; }
+    .contact-email {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-size: 1.05rem; font-weight: 600; color: var(--blue-light);
+      background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12);
+      padding: 14px 28px; border-radius: var(--radius-sm); margin-bottom: 36px;
+      transition: background .15s;
+    }
+    .contact-email:hover { background: rgba(255,255,255,.1); }
+    .contact-socials { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; }
+    .csocial {
+      display: inline-flex; align-items: center; gap: 7px;
+      font-size: .84rem; font-weight: 600; color: rgba(255,255,255,.7);
+      background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.12);
+      padding: 9px 18px; border-radius: var(--radius-sm);
+      transition: background .15s, color .15s;
+    }
+    .csocial:hover { background: rgba(255,255,255,.13); color: #fff; }
+
+    /* ── FOOTER ───────────────────────────────────────── */
+    footer {
+      background: #080f1e; padding: 24px 28px; text-align: center;
+      font-size: .78rem; color: rgba(255,255,255,.3);
+    }
+    footer a { color: rgba(255,255,255,.4); transition: color .15s; }
+    footer a:hover { color: rgba(255,255,255,.7); }
+  </style>
+</head>
+<body>
+
+<!-- ── NAVIGATION ──────────────────────────────── -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="#top">Maryam Rostamipoor</a>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#research">Research</a>
+      <a href="#experience">Experience</a>
+      <a href="#publications">Publications</a>
+      <a href="#contact">Contact</a>
+      <a href="files/MaryamRostamipoor-Resume-2026.pdf" class="nav-cta" target="_blank" rel="noopener">Resume ↗</a>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">&#9776;</button>
+  </div>
+</nav>
+<div class="mobile-nav" id="mobileNav">
+  <a href="#about" onclick="closeMobileNav()">About</a>
+  <a href="#research" onclick="closeMobileNav()">Research</a>
+  <a href="#experience" onclick="closeMobileNav()">Experience</a>
+  <a href="#publications" onclick="closeMobileNav()">Publications</a>
+  <a href="#contact" onclick="closeMobileNav()">Contact</a>
+  <a href="files/MaryamRostamipoor-Resume-2026.pdf" target="_blank" rel="noopener">Resume ↗</a>
+</div>
+
+<!-- ── HERO ────────────────────────────────────── -->
+<section class="hero" id="top">
+  <div class="hero-grid"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-glow2"></div>
+  <div class="hero-inner">
+    <p class="hero-eyebrow">Security Engineer &nbsp;·&nbsp; Security Researcher &nbsp;·&nbsp; PhD Candidate ʼ26 &nbsp;·&nbsp; Stony Brook University</p>
+    <h1 class="hero-name">Maryam<br><span>Rostamipoor</span></h1>
+    <p class="hero-tagline">Building production-grade security systems that protect real-world applications at scale — from serverless platforms to Kubernetes clusters.</p>
+    <div class="hero-badges">
+      <a href="#publications" class="hbadge hbadge-blue"><span class="hbadge-dot"></span>NDSS 2025</a>
+      <a href="#publications" class="hbadge hbadge-teal"><span class="hbadge-dot"></span>IEEE EuroS&amp;P 2025</a>
+      <a href="https://www.cs.stonybrook.edu/about-us/News/three-doctoral-students-receive-catacosinos-fellowship-excellence-computer-science" class="hbadge hbadge-gold" target="_blank" rel="noopener"><span class="hbadge-dot"></span>Catacosinos Fellow</a>
+      <span class="hbadge hbadge-gold"><span class="hbadge-dot"></span>NDSS Fellow</span>
+    </div>
+    <div class="hero-ctas">
+      <a href="files/MaryamRostamipoor-Resume-2026.pdf" class="btn-hero-primary" target="_blank" rel="noopener">
+        <i class="fas fa-file-alt"></i> Resume
+      </a>
+      <a href="https://scholar.google.com/citations?user=jUJfU5QAAAAJ&hl=en" class="btn-hero-secondary" target="_blank" rel="noopener">
+        <i class="ai ai-google-scholar"></i> Google Scholar
+      </a>
+      <a href="#contact" class="btn-hero-ghost">Get in Touch &rarr;</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hstat"><span class="hstat-val">8<sup>+</sup></span><span class="hstat-label">Years in<br>Security</span></div>
+      <div class="hstat"><span class="hstat-val">3</span><span class="hstat-label">Top-Tier<br>Publications</span></div>
+      <div class="hstat"><span class="hstat-val">498</span><span class="hstat-label">Real-World<br>Apps Secured</span></div>
+      <div class="hstat"><span class="hstat-val">1,400<sup>+</sup></span><span class="hstat-label">Secrets<br>Exposed</span></div>
+      <div class="hstat"><span class="hstat-val">90<sup>+</sup></span><span class="hstat-label">Pen Tests<br>Conducted</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── ABOUT ───────────────────────────────────── -->
+<section class="about" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-photo-wrap">
+        <img src="img/avatar.jpg" alt="Maryam Rostamipoor" class="about-photo">
+        <div class="about-socials">
+          <a href="mailto:mrostamipoor@cs.stonybrook.edu" class="social-btn"><i class="fas fa-envelope"></i> Email</a>
+          <a href="https://github.com/mrostamipoor" class="social-btn" target="_blank" rel="noopener"><i class="fab fa-github"></i> GitHub</a>
+          <a href="https://www.linkedin.com/in/maryam-rostamipoor/" class="social-btn" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i> LinkedIn</a>
+          <a href="https://scholar.google.com/citations?user=jUJfU5QAAAAJ&hl=en" class="social-btn" target="_blank" rel="noopener"><i class="ai ai-google-scholar"></i> Scholar</a>
+          <a href="https://x.com/MRostamipoor" class="social-btn" target="_blank" rel="noopener"><i class="fab fa-x-twitter"></i> Twitter</a>
+        </div>
+      </div>
+      <div class="about-text">
+        <div class="section-head">
+          <p class="section-label">About</p>
+          <h2 class="section-title">Security Engineer &amp;<br>PhD Researcher</h2>
+        </div>
+        <p>I am a <strong>Security Engineer and PhD candidate</strong> in Computer Science at Stony Brook University (graduating May 2026), advised by <a href="https://www3.cs.stonybrook.edu/~mikepo/" style="color:var(--blue)">Dr. Michalis Polychronakis</a>. I have <strong>8+ years of combined industry and research experience</strong> in cloud and platform security, Kubernetes hardening, secrets management, static analysis, and penetration testing.</p>
+        <p>My research focuses on building production-grade security systems deployed across hundreds of real-world applications — earning publications at <strong>NDSS 2025</strong> and <strong>IEEE EuroS&amp;P 2025</strong>. I am a <strong>Catacosinos Fellow</strong> (2025) and <strong>Internet Society NDSS Fellow</strong> (2025).</p>
+        <p>Before my PhD, I was <strong>Head of Software Security</strong> at Sadad Electronic Payment Company, leading threat modeling, security architecture reviews, and penetration testing across a national-scale banking ecosystem. I manually exploited XSS, SQL injection, SSRF, IDOR, authentication bypass, and RCE vulnerabilities in production financial infrastructure.</p>
+        <p>I am actively seeking <strong>Security Engineering roles</strong> at top tech companies, with a focus on cloud security, platform security, and security tooling. Available from <strong>May 2026</strong>. Green Card Holder.</p>
+        <div class="about-interests">
+          <span class="interest-tag">Cloud &amp; Platform Security</span>
+          <span class="interest-tag">Kubernetes Security</span>
+          <span class="interest-tag">Secrets Management</span>
+          <span class="interest-tag">Penetration Testing</span>
+          <span class="interest-tag">Static Analysis</span>
+          <span class="interest-tag">CI/CD Security</span>
+          <span class="interest-tag">Threat Modeling</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── RESEARCH ────────────────────────────────── -->
+<section class="research" id="research">
+  <div class="container">
+    <div class="section-head">
+      <p class="section-label">Research &amp; Projects</p>
+      <h2 class="section-title">Security Systems at Scale</h2>
+      <p class="section-sub">Production-grade tools deployed across hundreds of real-world applications, translating cutting-edge research into practical defenses.</p>
+    </div>
+    <div class="rc-grid">
+      <a href="/publication/leakless/" class="rc-card rc-blue">
+        <div class="rc-top"><span class="rc-venue rv-blue">NDSS 2025</span><span class="rc-tag">Serverless Security</span></div>
+        <h3 class="rc-title">LeakLess</h3>
+        <p class="rc-desc">In-memory encryption protecting sensitive data against Spectre/Meltdown-class transient execution attacks in serverless platforms. Implemented on Spin and evaluated on real-world serverless applications.</p>
+        <div class="rc-metrics">
+          <div class="rc-metric"><strong>91%</strong><span>apps protected</span></div>
+          <div class="rc-metric"><strong>2.8–8.5%</strong><span>overhead</span></div>
+        </div>
+        <div class="rc-links">
+          <span class="rc-link"><i class="fas fa-file-pdf"></i> Paper</span>
+          <span class="rc-link"><i class="fab fa-github"></i> Code</span>
+        </div>
+      </a>
+      <a href="/publication/kubekeeper/" class="rc-card rc-teal">
+        <div class="rc-top"><span class="rc-venue rv-teal">IEEE EuroS&amp;P 2025</span><span class="rc-tag">Kubernetes Security</span></div>
+        <h3 class="rc-title">KubeKeeper</h3>
+        <p class="rc-desc">Cryptographic Secrets protection for Kubernetes using RBAC and Admission Webhooks, eliminating excessive-permission exposures across real-world cluster deployments.</p>
+        <div class="rc-metrics">
+          <div class="rc-metric"><strong>498</strong><span>apps secured</span></div>
+          <div class="rc-metric"><strong>0</strong><span>runtime overhead</span></div>
+        </div>
+        <div class="rc-links">
+          <span class="rc-link"><i class="fas fa-file-pdf"></i> Paper</span>
+          <span class="rc-link"><i class="fab fa-github"></i> Code</span>
+        </div>
+      </a>
+      <div class="rc-card rc-orange">
+        <div class="rc-top"><span class="rc-venue rv-orange">In Preparation</span><span class="rc-tag">CI/CD Security</span></div>
+        <h3 class="rc-title">LeakGauge</h3>
+        <p class="rc-desc">IaC-aware static analysis framework (CodeQL) tracing sensitive data flows across serverless deployments. Designed as a CI/CD security guardrail to catch secret exposure before deployment.</p>
+        <div class="rc-metrics">
+          <div class="rc-metric"><strong>1,400+</strong><span>secrets found</span></div>
+          <div class="rc-metric"><strong>500+</strong><span>apps analyzed</span></div>
+        </div>
+        <div class="rc-links">
+          <span class="rc-link rc-link-muted"><i class="fas fa-clock"></i> Coming Soon</span>
+        </div>
+      </div>
+      <a href="/publication/confine/" class="rc-card rc-purple">
+        <div class="rc-top"><span class="rc-venue rv-purple">Computers &amp; Security 2023</span><span class="rc-tag">Container Security</span></div>
+        <h3 class="rc-title">Confine</h3>
+        <p class="rc-desc">Automated seccomp policy generation for containers via static binary analysis, filtering unnecessary system calls to dramatically reduce the kernel attack surface.</p>
+        <div class="rc-metrics">
+          <div class="rc-metric"><strong>144+</strong><span>syscalls filtered</span></div>
+          <div class="rc-metric"><strong>28</strong><span>CVEs mitigated</span></div>
+        </div>
+        <div class="rc-links">
+          <span class="rc-link"><i class="fas fa-file-pdf"></i> Paper</span>
+          <span class="rc-link"><i class="fab fa-github"></i> Code</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ── EXPERIENCE ──────────────────────────────── -->
+<section class="experience" id="experience">
+  <div class="container">
+    <div class="section-head">
+      <p class="section-label">Experience</p>
+      <h2 class="section-title">8+ Years in Security</h2>
+    </div>
+    <div class="exp-timeline">
+      <div class="exp-item">
+        <div class="exp-left"><p class="exp-date">Feb 2021 – May 2026</p></div>
+        <div class="exp-right">
+          <p class="exp-title">Security &amp; Privacy Researcher</p>
+          <p class="exp-company">HexLab, Stony Brook University &mdash; Stony Brook, NY</p>
+          <ul class="exp-desc">
+            <li>Built <strong>LeakLess</strong>: in-memory encryption protecting against Spectre/Meltdown-class attacks in 91% of serverless apps with only 2.8–8.5% overhead. Published at <strong>NDSS 2025</strong>.</li>
+            <li>Built <strong>KubeKeeper</strong>: cryptographic Kubernetes Secrets protection across 498 real-world apps with zero runtime overhead. Published at <strong>EuroS&amp;P 2025</strong>.</li>
+            <li>Developed <strong>LeakGauge</strong>: IaC-aware CodeQL framework identifying 1,400+ secret-exposure paths across 500+ serverless applications.</li>
+            <li>Created <strong>Confine</strong>: automated seccomp policy generation filtering 144+ syscalls and mitigating 28 Linux kernel CVEs. Published in <em>Computers &amp; Security</em>, 2023.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="exp-item">
+        <div class="exp-left"><p class="exp-date">May 2018 – Feb 2021</p></div>
+        <div class="exp-right">
+          <p class="exp-title">Head of Software Security Team</p>
+          <p class="exp-company">Sadad Electronic Payment Company &mdash; Tehran, Iran</p>
+          <ul class="exp-desc">
+            <li>Led product and platform security for a national-scale banking ecosystem — threat modeling, security architecture reviews, and risk assessments across web, mobile, and API systems.</li>
+            <li>Manually exploited real-world vulnerabilities including <strong>XSS, SQL injection, SSRF, IDOR, authentication bypass, and RCE</strong> in production financial applications.</li>
+            <li>Conducted penetration testing of 20+ web/mobile services and APIs, integrating secure development practices into the SDLC.</li>
+            <li>Automated vulnerability triage and remediation workflows, reducing remediation time by <strong>40%</strong>.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="exp-item">
+        <div class="exp-left"><p class="exp-date">Feb 2017 – May 2018</p></div>
+        <div class="exp-right">
+          <p class="exp-title">Researcher &amp; Senior Software Security Engineer</p>
+          <p class="exp-company">APA Research Center, Amirkabir University of Technology &mdash; Tehran, Iran</p>
+          <ul class="exp-desc">
+            <li>Performed penetration testing across 90+ web, mobile, and API systems, discovering CVSS &ge; 9 vulnerabilities in national stock exchange infrastructure.</li>
+            <li>Designed secure baselines and automated auditing scripts for 54 production servers — guidance adopted by <strong>100+ organizations</strong>, reducing review time by 70%.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="exp-item">
+        <div class="exp-left"><p class="exp-date">Dec 2015 – Feb 2017</p></div>
+        <div class="exp-right">
+          <p class="exp-title">Senior Web Application Security Engineer</p>
+          <p class="exp-company">Stock Exchange Organization &mdash; Tehran, Iran</p>
+          <ul class="exp-desc">
+            <li>Led offensive security assessments across 50+ production web applications and APIs supporting national financial trading platforms, mitigating high-risk attack paths.</li>
+            <li>Hardened 54 production servers by designing secure baselines and automated auditing scripts, reducing configuration review time by 70%.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── SKILLS ──────────────────────────────────── -->
+<section class="skills" id="skills">
+  <div class="container">
+    <div class="section-head">
+      <p class="section-label">Skills</p>
+      <h2 class="section-title">Technical Expertise</h2>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-group">
+        <span class="skill-category">Security &amp; Privacy</span>
+        <div class="skill-tags">
+          <span class="stag">Applied Cryptography</span><span class="stag">In-Memory Encryption</span><span class="stag">Secrets Management</span><span class="stag">Threat Modeling (STRIDE)</span><span class="stag">Data-Flow &amp; Taint Analysis</span><span class="stag">Container Isolation</span><span class="stag">DevSecOps</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <span class="skill-category">Cloud &amp; Infrastructure</span>
+        <div class="skill-tags">
+          <span class="stag">AWS (IAM, VPC, Lambda, Security Hub)</span><span class="stag">Kubernetes (RBAC, Admission Webhooks)</span><span class="stag">Docker</span><span class="stag">IaC Security</span><span class="stag">CI/CD Security (GitHub Actions)</span><span class="stag">Secure-by-Default Architecture</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <span class="skill-category">Offensive Security</span>
+        <div class="skill-tags">
+          <span class="stag">XSS</span><span class="stag">SQL Injection</span><span class="stag">SSRF</span><span class="stag">IDOR</span><span class="stag">CSRF</span><span class="stag">RCE</span><span class="stag">Auth Bypass</span><span class="stag">Burp Suite</span><span class="stag">Metasploit</span><span class="stag">Nessus</span><span class="stag">SQLmap</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <span class="skill-category">Program Analysis</span>
+        <div class="skill-tags">
+          <span class="stag">CodeQL</span><span class="stag">angr</span><span class="stag">Ghidra</span><span class="stag">Static &amp; Dynamic Analysis</span><span class="stag">ELF &amp; Binary Analysis</span><span class="stag">Taint-Flow Tracking</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <span class="skill-category">Languages</span>
+        <div class="skill-tags">
+          <span class="stag">Python</span><span class="stag">C</span><span class="stag">Go</span><span class="stag">Rust</span><span class="stag">JavaScript</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PUBLICATIONS ────────────────────────────── -->
+<section class="publications" id="publications">
+  <div class="container">
+    <div class="section-head">
+      <p class="section-label">Publications</p>
+      <h2 class="section-title">Research Output</h2>
+    </div>
+    <div class="pub-list">
+      <div class="pub-item">
+        <div class="pub-meta">
+          <span class="pub-venue pub-venue-ndss">NDSS 2025</span>
+          <span class="pub-year">February 2025 &nbsp;·&nbsp; San Diego, CA</span>
+        </div>
+        <p class="pub-title">LeakLess: Selective Data Protection Against Memory Leakage Attacks for Serverless Platforms</p>
+        <p class="pub-authors"><strong>Maryam Rostamipoor</strong>, Seyedhamed Ghavamnia, Michalis Polychronakis</p>
+        <div class="pub-links">
+          <a href="files/leakless.pdf" class="pub-link" target="_blank" rel="noopener"><i class="fas fa-file-pdf"></i> PDF</a>
+          <a href="https://github.com/mrostamipoor/LeakLess" class="pub-link" target="_blank" rel="noopener"><i class="fab fa-github"></i> Code</a>
+        </div>
+      </div>
+      <div class="pub-item">
+        <div class="pub-meta">
+          <span class="pub-venue pub-venue-eurosp">IEEE EuroS&amp;P 2025</span>
+          <span class="pub-year">June 2025 &nbsp;·&nbsp; Venice, Italy</span>
+        </div>
+        <p class="pub-title">KubeKeeper: Protecting Kubernetes Secrets Against Excessive Permissions</p>
+        <p class="pub-authors"><strong>Maryam Rostamipoor</strong>, Aliakbar Sadeghi, Michalis Polychronakis</p>
+        <div class="pub-links">
+          <a href="files/kubekeeper.pdf" class="pub-link" target="_blank" rel="noopener"><i class="fas fa-file-pdf"></i> PDF</a>
+          <a href="https://github.com/mrostamipoor/KubeKeeper" class="pub-link" target="_blank" rel="noopener"><i class="fab fa-github"></i> Code</a>
+        </div>
+      </div>
+      <div class="pub-item">
+        <div class="pub-meta">
+          <span class="pub-venue pub-venue-cs">Computers &amp; Security 2023</span>
+          <span class="pub-year">2023</span>
+        </div>
+        <p class="pub-title">Confine: Fine-grained System Call Filtering for Container Attack Surface Reduction</p>
+        <p class="pub-authors"><strong>Maryam Rostamipoor</strong>, Seyedhamed Ghavamnia, Michalis Polychronakis</p>
+        <div class="pub-links">
+          <a href="files/confine.pdf" class="pub-link" target="_blank" rel="noopener"><i class="fas fa-file-pdf"></i> PDF</a>
+          <a href="https://github.com/mrostamipoor/Confine" class="pub-link pub-link-ghost" target="_blank" rel="noopener"><i class="fab fa-github"></i> Code</a>
+        </div>
+      </div>
+      <div class="pub-item pub-prep">
+        <div class="pub-meta">
+          <span class="pub-venue pub-venue-prep">Under Submission</span>
+          <span class="pub-year">2025</span>
+        </div>
+        <p class="pub-title">Fake APIs, Real Threats: Studying Activities Targeting APIs in the Wild</p>
+        <p class="pub-authors">Aliakbar Sadeghi, <strong>Maryam Rostamipoor</strong>, Nick Nikiforakis, Omar Chowdhury</p>
+      </div>
+      <div class="pub-item pub-prep">
+        <div class="pub-meta">
+          <span class="pub-venue pub-venue-prep">In Preparation</span>
+          <span class="pub-year">2025</span>
+        </div>
+        <p class="pub-title">LeakGauge: Infrastructure-as-Code–Aware Sensitive Data Flow Analysis in Event-Driven Serverless Applications</p>
+        <p class="pub-authors"><strong>Maryam Rostamipoor</strong>, Michalis Polychronakis</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── AWARDS ──────────────────────────────────── -->
+<section class="awards" id="awards">
+  <div class="container">
+    <div class="section-head">
+      <p class="section-label">Awards &amp; Honors</p>
+      <h2 class="section-title">Recognition</h2>
+    </div>
+    <div class="awards-list">
+      <div class="award-item">
+        <span class="award-year">2025</span>
+        <div><p class="award-name">Catacosinos Fellowship for Academic Excellence and Research Potential</p><p class="award-org">Department of Computer Science, Stony Brook University</p></div>
+      </div>
+      <div class="award-item">
+        <span class="award-year">2025</span>
+        <div><p class="award-name">Internet Society NDSS Fellowship</p><p class="award-org">Network and Distributed System Security Symposium</p></div>
+      </div>
+      <div class="award-item">
+        <span class="award-year">2025</span>
+        <div><p class="award-name">CRA-WP Grad Cohort for Women &amp; IDEALS</p><p class="award-org">Computing Research Association</p></div>
+      </div>
+      <div class="award-item">
+        <span class="award-year">2023</span>
+        <div><p class="award-name">GAANN Fellowship (Graduate Assistance in Areas of National Need)</p><p class="award-org">U.S. Department of Education</p></div>
+      </div>
+      <div class="award-item">
+        <span class="award-year">2023</span>
+        <div><p class="award-name">Graduate Students in STEM Leadership &amp; Life Design Fellowship</p><p class="award-org">Stony Brook University</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CONTACT ─────────────────────────────────── -->
+<section class="contact" id="contact">
+  <div class="container">
+    <p class="section-label">Contact</p>
+    <h2 class="section-title">Let's Connect</h2>
+    <p class="contact-sub">I'm open to Security Engineering opportunities at top tech companies. Graduating May 2026 — feel free to reach out.</p>
+    <a href="mailto:mrostamipoor@cs.stonybrook.edu" class="contact-email">
+      <i class="fas fa-envelope"></i> mrostamipoor@cs.stonybrook.edu
+    </a>
+    <div class="contact-socials">
+      <a href="https://github.com/mrostamipoor" class="csocial" target="_blank" rel="noopener"><i class="fab fa-github"></i> GitHub</a>
+      <a href="https://www.linkedin.com/in/maryam-rostamipoor/" class="csocial" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i> LinkedIn</a>
+      <a href="https://scholar.google.com/citations?user=jUJfU5QAAAAJ&hl=en" class="csocial" target="_blank" rel="noopener"><i class="ai ai-google-scholar"></i> Google Scholar</a>
+      <a href="https://x.com/MRostamipoor" class="csocial" target="_blank" rel="noopener"><i class="fab fa-x-twitter"></i> Twitter</a>
+      <a href="files/MaryamRostamipoor-Resume-2026.pdf" class="csocial" target="_blank" rel="noopener"><i class="fas fa-file-alt"></i> Resume</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ──────────────────────────────────── -->
+<footer>
+  <p>&copy; 2026 Maryam Rostamipoor &nbsp;&middot;&nbsp; <a href="https://mrostamipoor.github.io/">mrostamipoor.github.io</a></p>
+</footer>
+
+<script>
+  // Navbar scroll shadow
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 20);
+  });
+
+  // Mobile nav toggle
+  const toggle = document.getElementById('navToggle');
+  const mobileNav = document.getElementById('mobileNav');
+  toggle.addEventListener('click', () => mobileNav.classList.toggle('open'));
+
+  function closeMobileNav() { mobileNav.classList.remove('open'); }
+
+  // Close mobile nav on outside click
+  document.addEventListener('click', (e) => {
+    if (!nav.contains(e.target) && !mobileNav.contains(e.target)) closeMobileNav();
+  });
+</script>
+</body>
+</html>
