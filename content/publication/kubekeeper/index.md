@@ -26,11 +26,11 @@ slides: ""
 
 ## The Problem
 
-Kubernetes stores sensitive configuration data — API keys, database credentials, TLS certificates — as **Secrets** objects. Despite their name, Kubernetes Secrets have several fundamental security limitations:
+Kubernetes stores sensitive configuration data (API keys, database credentials, TLS certificates) as **Secrets** objects. Despite their name, Kubernetes Secrets have several fundamental security limitations:
 
 - Secrets are stored **unencrypted in etcd** by default. Encryption at rest is opt-in and lacks key rotation and audit logging.
 - **RBAC provides only coarse-grained control.** A user or Service Account granted `get` or `list` permissions on Secrets receives access to all their decrypted values. Kubernetes does not prevent Pods from mounting any Secret in their Namespace.
-- **Third-party applications frequently ship with insecure default configurations** that grant excessive permissions — cluster-wide Secret access, Pod creation rights, or both.
+- **Third-party applications frequently ship with insecure default configurations** that grant excessive permissions, including cluster-wide Secret access, Pod creation rights, or both.
 
 Our analysis of 498 real-world Kubernetes applications found that **202 (41%) have excessive permissions** that can lead to unauthorized Secret access:
 
@@ -39,21 +39,21 @@ Our analysis of 498 real-world Kubernetes applications found that **202 (41%) ha
 | Direct access via Secret API | 1,866 permissions | 84% |
 | Indirect access via resource scheduling | 3,068 permissions | 79% |
 
-A concrete example: a critical vulnerability in the widely deployed `ingress-nginx` Controller (used in over 40% of clusters) allowed an unauthenticated attacker with network access to obtain the Service Account token with cluster-wide Secret access — disclosing every Secret in the cluster.
+A concrete example: a critical vulnerability in the widely deployed `ingress-nginx` Controller (used in over 40% of clusters) allowed an unauthenticated attacker with network access to obtain a Service Account token with cluster-wide Secret access, effectively disclosing every Secret in the cluster.
 
 ## Key Insight
 
-Instead of trying to fix RBAC configurations — a fragile, error-prone approach in dynamic environments — KubeKeeper takes a **cryptographic approach**: Secrets are always stored encrypted, and decryption keys are distributed *only to explicitly authorized Pods* at deployment time. Even if RBAC is misconfigured or bypassed, the attacker only sees ciphertext.
+Fixing RBAC configurations is fragile and error-prone in dynamic environments. KubeKeeper takes a **cryptographic approach** instead: Secrets are always stored encrypted, and decryption keys are distributed *only to explicitly authorized Pods* at deployment time. Even if RBAC is misconfigured or bypassed, the attacker only sees ciphertext.
 
 ## Design
 
-KubeKeeper integrates with Kubernetes through **Admission Webhooks** — no changes to the Kubernetes source code or application code are required.
+KubeKeeper integrates with Kubernetes through **Admission Webhooks**, with no changes to the Kubernetes source code or application code required.
 
 **Core mechanism:**
 
 1. When a Secret is created, KubeKeeper's Mutating Admission Webhook **encrypts it with a unique per-Secret key** before it is written to etcd.
-2. When a Pod is deployed, KubeKeeper identifies which Secrets it is authorized to access, and **distributes decryption keys exclusively to that Pod** during its admission phase.
-3. Unauthorized Pods — whether they have direct API access, indirect scheduling control, or node-level access — receive only ciphertext and cannot decrypt it.
+2. When a Pod is deployed, KubeKeeper identifies which Secrets it is authorized to access and **distributes decryption keys exclusively to that Pod** during its admission phase.
+3. Unauthorized Pods (whether they have direct API access, indirect scheduling control, or node-level access) receive only ciphertext and cannot decrypt it.
 
 **Advantages over native RBAC:**
 
@@ -71,12 +71,12 @@ KubeKeeper integrates with Kubernetes through **Admission Webhooks** — no chan
 
 KubeKeeper was evaluated on **498 diverse Kubernetes applications** drawn from public repositories, including applications previously studied in the security literature:
 
-- Successfully **protects Secrets against all identified excessive permission types** — direct, indirect via Secret manipulation, indirect via resource scheduling, and indirect via Node manipulation.
-- **Zero application runtime overhead** — encryption/decryption happens outside the critical execution path.
+- Successfully **protects Secrets against all identified excessive permission types**: direct access, indirect access via Secret manipulation, indirect access via resource scheduling, and indirect access via Node manipulation.
+- **Zero application runtime overhead.** Encryption and decryption happen outside the critical execution path.
 - **No significant overhead during Pod creation and deployment.**
 - Requires **no changes to application source code** and minimal cluster integration effort.
 
-We also released a companion **YAML scanner tool** that automatically analyzes Kubernetes configuration files to identify excessive permissions — providing a more efficient and reliable alternative to existing manual analysis tools.
+We also released a companion **YAML scanner tool** that automatically analyzes Kubernetes configuration files to identify excessive permissions, offering a more efficient and reliable alternative to existing manual analysis tools.
 
 ## Venue
 

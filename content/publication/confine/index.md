@@ -27,18 +27,18 @@ slides: ""
 
 ## The Problem
 
-Containers rely on OS-level virtualization: they share the host kernel, relying on namespaces, cgroups, and capabilities for isolation. Unlike VMs, a vulnerability in the Linux kernel exploited from within a container can **fully compromise the host and every other container** on it.
+Containers rely on OS-level virtualization: they share the host kernel and use namespaces, cgroups, and capabilities for isolation. Unlike VMs, a vulnerability in the Linux kernel exploited from within a container can **fully compromise the host and every other container** on it.
 
-The Linux kernel's attack surface has grown dramatically — from 126 system calls in kernel 1.0 (1991) to **335 system calls** in kernel 5.4. Most containerized applications use only a small fraction of these. Every unused system call is an unnecessary entry point to kernel code that could be exploited.
+The Linux kernel's attack surface has grown substantially, from 126 system calls in kernel 1.0 (1991) to **335 system calls** in kernel 5.4. Most containerized applications use only a small fraction of these. Every unused system call is an unnecessary entry point to kernel code that could be exploited.
 
 **Seccomp BPF** allows restricting the set of system calls available to a container, but generating correct policies is challenging:
 
-- *Dynamic analysis* (the dominant prior approach) instruments the container under representative workloads and allows only observed system calls. It **misses calls along untrained code paths** — for example, calls only triggered during cache eviction, error handling, or rare initialization sequences.
+- *Dynamic analysis* (the dominant prior approach) instruments the container under representative workloads and allows only observed system calls. It **misses calls along untrained code paths**, for example calls only triggered during cache eviction, error handling, or rare initialization sequences.
 - Manual policy writing is error-prone and does not scale across container images.
 
 ## Key Insight
 
-By relying on **static binary analysis** — inspecting all execution paths rather than only those exercised during training — Confine can guarantee a sound (complete) system call superset that will never block legitimate application behavior, while still filtering far more calls than dynamic approaches.
+Static binary analysis inspects all execution paths rather than only those exercised during training. By relying on this approach, Confine can guarantee a sound (complete) system call superset that will never block legitimate application behavior, while still filtering far more calls than dynamic approaches.
 
 ## Design
 
@@ -46,17 +46,17 @@ Confine operates in three phases:
 
 {{< figure src="featured.png" title="Confine's processing pipeline: a one-time dynamic phase identifies running processes; static analysis then derives the complete system call superset for both container-wide and application-specific policies." >}}
 
-**Phase 1 — Identify running applications (dynamic, one-time):**
-A lightweight profiling pass launches the container and records every process spawned during a 30-second initialization window. This captures utility programs (bash, init scripts) that run only at startup — without requiring application-specific workloads.
+**Phase 1 - Identify running applications (dynamic, one-time):**
+A lightweight profiling pass launches the container and records every process spawned during a 30-second initialization window. This captures utility programs (bash, init scripts) that run only at startup, without requiring application-specific workloads.
 
-**Phase 2 — Static analysis (per container image):**
-- *Libc function → system call mapping:* Confine builds a precise callgraph of libc at the source level, mapping each exported wrapper to the kernel system calls it may invoke, including through complex internal call chains (e.g., `fgets → __mmap → mmap`).
+**Phase 2 - Static analysis (per container image):**
+- *Libc function to system call mapping:* Confine builds a precise callgraph of libc at the source level, mapping each exported wrapper to the kernel system calls it may invoke, including through complex internal call chains (e.g., `fgets -> __mmap -> mmap`).
 - *Direct syscall extraction:* Applications and libraries that invoke `syscall()` or the `syscall` assembly instruction directly are identified via binary disassembly.
 - A **container-wide policy** is derived as the union of system calls needed by all processes.
 - An **application-specific policy** is then generated for the main long-running program, removing calls only needed during initialization.
 
-**Phase 3 — Argument concretization:**
-For system calls that cannot be filtered entirely, Confine restricts their **argument values** via intra-procedural reaching definitions analysis. This prevents, for example, passing dangerous flag combinations to `mmap`, `open`, or `prctl` — blocking many CVE exploitation paths even when the system call itself is permitted.
+**Phase 3 - Argument concretization:**
+For system calls that cannot be filtered entirely, Confine restricts their **argument values** via intra-procedural reaching definitions analysis. This blocks dangerous flag combinations to `mmap`, `open`, or `prctl`, preventing many CVE exploitation paths even when the system call itself is permitted.
 
 ## Results
 
@@ -69,7 +69,7 @@ Evaluated on **27 publicly available Docker images** (nginx, Redis, MongoDB, Apa
 | Linux kernel CVEs mitigated via argument concretization | **28 CVEs** |
 | Containers where functionality was broken | **0** |
 
-A notable case study: dynamic analysis of nginx misses the `unlink` system call — used only when the cache fills and old files must be deleted — because this path is never triggered during training. Confine's static analysis correctly identifies `unlink` as required and includes it in the policy, preventing false denials in production.
+A notable case study: dynamic analysis of nginx misses the `unlink` system call, which is used only when the cache fills and old files must be deleted, because this path is never triggered during training. Confine's static analysis correctly identifies `unlink` as required and includes it in the policy, preventing false denials in production.
 
 ## Venue
 
