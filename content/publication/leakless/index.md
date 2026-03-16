@@ -56,7 +56,7 @@ LeakLess introduces a dedicated **I/O module** that runs as a separate process (
 **Data flow protection:**
 
 1. Outgoing sensitive data is transmitted with the `LEAKLESS_` prefix (encrypted ciphertext). The I/O module intercepts the request, decrypts the value, and forwards the plaintext to the backend.
-2. Incoming sensitive data (e.g., a user's credit card number) is encrypted by the client-side JS before transmission. The I/O module encrypts it before passing it to the serverless function, so plaintext never enters the runtime's address space.
+2. Incoming sensitive data (e.g., a user's credit card number) is annotated by client-side JS with the `LEAKLESS_` prefix before transmission. When the I/O module receives the request, it identifies values carrying this prefix as sensitive, encrypts them, and preserves the `LEAKLESS_` prefix on the encrypted value before forwarding the request to the serverless function — so plaintext never enters the runtime's address space.
 
 This design provides protection against **intra-process**, **cross-process**, and **user-to-kernel** transient execution attacks by varying the deployment topology of the I/O module.
 
