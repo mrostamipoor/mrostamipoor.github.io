@@ -1,0 +1,9 @@
+*.aux
+*.bbl
+*.blg
+*.ent
+*.log
+
+# Claude Code settings
+.claude/
+
