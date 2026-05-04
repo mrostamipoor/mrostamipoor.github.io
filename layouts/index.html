@@ -222,13 +222,13 @@
     .hero-inner { position: relative; z-index: 1; padding: 60px 28px 80px; max-width: 1080px; margin: 0 auto; }
     .hero-eyebrow {
       font-size: .75rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase;
-      color: var(--blue-light); margin-bottom: 20px;
+      color: rgba(255,255,255,.55); margin-bottom: 20px;
     }
     .hero-name {
       font-size: clamp(2.8rem, 7vw, 5.2rem); font-weight: 900;
       letter-spacing: -.04em; line-height: 1.02; color: #fff; margin-bottom: 24px;
     }
-    .hero-name span { color: var(--blue-light); }
+    .hero-name span { color: rgba(255,255,255,.5); }
     .hero-tagline {
       font-size: clamp(.95rem, 2vw, 1.15rem); font-weight: 400;
       color: rgba(255,255,255,.65); max-width: 560px; line-height: 1.75; margin-bottom: 32px;
@@ -542,7 +542,7 @@
   <div class="hero-inner">
     <p class="hero-eyebrow">Security Engineer &nbsp;·&nbsp; Security Researcher &nbsp;·&nbsp; Applied Scientist &nbsp;·&nbsp; PhD Candidate &nbsp;·&nbsp; Stony Brook University</p>
     <h1 class="hero-name">Maryam<br><span>Rostamipoor</span></h1>
-    <p class="hero-tagline">Building production-grade security systems that protect real-world applications at scale — from serverless platforms to Kubernetes clusters.</p>
+    <p class="hero-tagline">Cloud-native security research — detecting and preventing sensitive-data leakage from serverless platforms to Kubernetes clusters.</p>
     <div class="hero-badges">
       <a href="#publications" class="hbadge hbadge-blue"><span class="hbadge-dot"></span>NDSS 2025</a>
       <a href="#publications" class="hbadge hbadge-teal"><span class="hbadge-dot"></span>IEEE EuroS&amp;P 2025</a>
@@ -587,10 +587,10 @@
           <p class="section-label">About</p>
           <h2 class="section-title">Defense at the Framework Layer</h2>
         </div>
-        <p>I am a <strong>Security Engineer, Researcher, and Applied Scientist</strong> completing a PhD in Computer Science at Stony Brook University, advised by <a href="https://www3.cs.stonybrook.edu/~mikepo/" style="color:var(--blue)">Dr. Michalis Polychronakis</a>. I bring <strong>first-author publications at NDSS and IEEE EuroS&amp;P</strong> plus <strong>six years of pre-PhD offensive-security industry experience</strong> across national-scale financial infrastructure — spanning cloud and platform security, Kubernetes hardening, secrets management, static analysis, and penetration testing.</p>
-        <p>My research produces <strong>production-grade security systems evaluated across thousands of real-world applications</strong>. I designed and built LeakLess (NDSS 2025), KubeKeeper (EuroS&amp;P 2025), LeakChain, and Confine — each combining systems research with large-scale empirical evaluation. I am a <strong>Catacosinos Fellow</strong> and <strong>Internet Society NDSS Fellow</strong> (both 2025).</p>
+        <p>I am a Security Engineer, Researcher, and Applied Scientist completing a PhD in Computer Science at Stony Brook University, advised by <a href="https://www3.cs.stonybrook.edu/~mikepo/">Dr. Michalis Polychronakis</a>. I bring <strong>first-author publications at NDSS and IEEE EuroS&amp;P</strong> plus six years of pre-PhD offensive-security industry experience across national-scale financial infrastructure — spanning cloud and platform security, Kubernetes hardening, secrets management, static analysis, and penetration testing.</p>
+        <p>My research produces production-grade security systems evaluated across thousands of real-world applications. I designed and built LeakLess (NDSS 2025), KubeKeeper (EuroS&amp;P 2025), LeakChain, and Confine — each combining systems research with large-scale empirical evaluation. I am a <strong>Catacosinos Fellow</strong> and <strong>Internet Society NDSS Fellow</strong> (both 2025).</p>
         <p>Before my PhD, I was <strong>Head of Software Security</strong> at Sadad Electronic Payment Company, leading threat modeling, architecture reviews, and penetration testing for a national-scale banking ecosystem — manually exploiting XSS, SQL injection, SSRF, IDOR, authentication bypass, and RCE vulnerabilities in production financial infrastructure.</p>
-        <p>I am seeking roles in <strong>Security Engineering, Security Research, or Applied Scientist</strong> positions — with a focus on cloud security, platform security, security tooling, and applied security research. Green Card Holder.</p>
+        <p>I am seeking roles in Security Engineering, Security Research, or Applied Scientist positions — with a focus on cloud security, platform security, security tooling, and applied security research. Green Card Holder.</p>
         <div class="about-interests">
           <span class="interest-tag">Cloud &amp; Platform Security</span>
           <span class="interest-tag">Kubernetes Security</span>
@@ -738,27 +738,33 @@
     </div>
     <div class="skills-grid">
       <div class="skill-group">
-        <span class="skill-category">Security &amp; Privacy</span>
+        <span class="skill-category">Application &amp; Web Security</span>
         <div class="skill-tags">
-          <span class="stag">Applied Cryptography</span><span class="stag">In-Memory Encryption</span><span class="stag">Secrets Management</span><span class="stag">Threat Modeling (STRIDE)</span><span class="stag">Data-Flow &amp; Taint Analysis</span><span class="stag">Container Isolation</span><span class="stag">DevSecOps</span>
+          <span class="stag">Threat Modeling (STRIDE)</span><span class="stag">OWASP Top 10</span><span class="stag">Secure Code Review</span><span class="stag">PoC Exploit Development</span><span class="stag">XSS</span><span class="stag">SQL Injection</span><span class="stag">SSRF</span><span class="stag">IDOR</span><span class="stag">CSRF</span><span class="stag">Deserialization</span><span class="stag">Auth Bypass</span><span class="stag">RCE</span><span class="stag">Burp Suite</span><span class="stag">SQLmap</span><span class="stag">Metasploit</span><span class="stag">Nessus</span>
         </div>
       </div>
       <div class="skill-group">
-        <span class="skill-category">Cloud &amp; Infrastructure</span>
+        <span class="skill-category">Cloud &amp; Container Security</span>
         <div class="skill-tags">
-          <span class="stag">AWS (IAM, VPC, Lambda, Security Hub)</span><span class="stag">Kubernetes (RBAC, Admission Webhooks)</span><span class="stag">Docker</span><span class="stag">IaC Security</span><span class="stag">CI/CD Security (GitHub Actions)</span><span class="stag">Secure-by-Default Architecture</span>
+          <span class="stag">AWS (IAM, VPC, S3, Lambda, Security Hub)</span><span class="stag">Kubernetes (RBAC, Secrets, Admission Webhooks)</span><span class="stag">Docker</span><span class="stag">IaC Security</span><span class="stag">CI/CD Security (GitHub Actions)</span><span class="stag">Secrets Management</span><span class="stag">Secure-by-Default Architecture</span>
         </div>
       </div>
       <div class="skill-group">
-        <span class="skill-category">Offensive Security</span>
+        <span class="skill-category">Systems &amp; Program Analysis</span>
         <div class="skill-tags">
-          <span class="stag">XSS</span><span class="stag">SQL Injection</span><span class="stag">SSRF</span><span class="stag">IDOR</span><span class="stag">CSRF</span><span class="stag">RCE</span><span class="stag">Auth Bypass</span><span class="stag">Burp Suite</span><span class="stag">Metasploit</span><span class="stag">Nessus</span><span class="stag">SQLmap</span>
+          <span class="stag">Linux Kernel Internals</span><span class="stag">System-Call Filtering (seccomp, AppArmor)</span><span class="stag">Container Isolation</span><span class="stag">Applied Cryptography</span><span class="stag">In-Memory Encryption</span><span class="stag">CodeQL</span><span class="stag">angr</span><span class="stag">Ghidra</span><span class="stag">Static &amp; Dynamic Analysis</span><span class="stag">Taint-Flow Tracking</span>
         </div>
       </div>
       <div class="skill-group">
-        <span class="skill-category">Program Analysis</span>
+        <span class="skill-category">Identity &amp; Access Security</span>
         <div class="skill-tags">
-          <span class="stag">CodeQL</span><span class="stag">angr</span><span class="stag">Ghidra</span><span class="stag">Static &amp; Dynamic Analysis</span><span class="stag">ELF &amp; Binary Analysis</span><span class="stag">Taint-Flow Tracking</span>
+          <span class="stag">OAuth 2.0</span><span class="stag">OIDC</span><span class="stag">SAML</span><span class="stag">SCIM</span><span class="stag">WebAuthn / FIDO2</span><span class="stag">Identity Protocol Assessment</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <span class="skill-category">AI Security</span>
+        <div class="skill-tags">
+          <span class="stag">LLM-Based Agent Development</span><span class="stag">LLM-Assisted Source/Sink Modeling</span><span class="stag">Prompt Injection Research</span><span class="stag">Security Automation</span>
         </div>
       </div>
       <div class="skill-group">
