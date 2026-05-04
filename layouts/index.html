@@ -149,7 +149,7 @@
     a { color: inherit; text-decoration: none; }
     img { display: block; max-width: 100%; }
     .container { max-width: 1080px; margin: 0 auto; padding: 0 28px; }
-    section { padding: 88px 0; }
+    section { padding: 56px 0; }
 
     /* ── NAV ──────────────────────────────────────────── */
     .nav {
@@ -291,14 +291,14 @@
     /* ── SECTION SHARED ───────────────────────────────── */
     .section-label {
       font-size: .72rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
-      color: var(--blue); margin-bottom: 10px;
+      color: var(--text-3); margin-bottom: 10px;
     }
     .section-title {
       font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 800;
       letter-spacing: -.03em; color: var(--text); margin-bottom: 8px;
     }
     .section-sub { font-size: .95rem; color: var(--text-3); max-width: 560px; line-height: 1.7; }
-    .section-head { margin-bottom: 48px; }
+    .section-head { margin-bottom: 32px; }
 
     /* ── ABOUT ────────────────────────────────────────── */
     .about { background: var(--bg-alt); }
@@ -306,10 +306,10 @@
     .about-photo-wrap { position: sticky; top: 80px; }
     .about-photo {
       width: 100%; border-radius: var(--radius); object-fit: cover;
-      border: 3px solid var(--blue); box-shadow: 0 12px 40px rgba(37,99,235,.18);
+      border: 1px solid var(--border); box-shadow: 0 8px 24px rgba(15,23,42,.08);
       transition: transform .3s, box-shadow .3s;
     }
-    .about-photo:hover { transform: translateY(-4px); box-shadow: 0 20px 50px rgba(37,99,235,.25); }
+    .about-photo:hover { transform: translateY(-4px); box-shadow: 0 16px 36px rgba(15,23,42,.14); }
     .about-socials { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
     .social-btn {
       display: inline-flex; align-items: center; gap: 7px;
@@ -585,7 +585,7 @@
       <div class="about-text">
         <div class="section-head">
           <p class="section-label">About</p>
-          <h2 class="section-title">Security Engineer &nbsp;·&nbsp; Researcher<br>&amp; Applied Scientist</h2>
+          <h2 class="section-title">Defense at the Framework Layer</h2>
         </div>
         <p>I am a <strong>Security Engineer, Researcher, and Applied Scientist</strong> completing a PhD in Computer Science at Stony Brook University, advised by <a href="https://www3.cs.stonybrook.edu/~mikepo/" style="color:var(--blue)">Dr. Michalis Polychronakis</a>. I bring <strong>first-author publications at NDSS and IEEE EuroS&amp;P</strong> plus <strong>six years of pre-PhD offensive-security industry experience</strong> across national-scale financial infrastructure — spanning cloud and platform security, Kubernetes hardening, secrets management, static analysis, and penetration testing.</p>
         <p>My research produces <strong>production-grade security systems evaluated across thousands of real-world applications</strong>. I designed and built LeakLess (NDSS 2025), KubeKeeper (EuroS&amp;P 2025), LeakChain, and Confine — each combining systems research with large-scale empirical evaluation. I am a <strong>Catacosinos Fellow</strong> and <strong>Internet Society NDSS Fellow</strong> (both 2025).</p>
