@@ -1,7 +1,7 @@
 ---
 # Display name
 title: Maryam Rostamipoor
-summary: "Ph.D. candidate in Computer Science at Stony Brook University specializing in cloud, container, and application security — with over 10 years of research and industry experience."
+summary: "Ph.D. candidate in Computer Science at Stony Brook University specializing in cloud, container, and application security. First-author publications at NDSS '25 and IEEE EuroS&P '25."
 
 # Username (this should match the folder name)
 authors:
@@ -87,14 +87,16 @@ user_groups:
 ---
 
 
-I am a Security Engineer and Ph.D. candidate in Computer Science at Stony Brook University (graduating May 2026), advised by [Dr. Michalis Polychronakis](https://www3.cs.stonybrook.edu/~mikepo/). I have 8+ years of combined industry and research experience specializing in **cloud and platform security**, **Kubernetes and container hardening**, **secrets management**, **static analysis**, and **penetration testing**. I am a [Catacosinos Fellow](https://www.cs.stonybrook.edu/) (2025) and [NDSS Fellow](https://www.ndss-symposium.org/) (2025).
+I am a Security Engineer and Ph.D. candidate in Computer Science at Stony Brook University (graduating May 2026), advised by [Dr. Michalis Polychronakis](https://www3.cs.stonybrook.edu/~mikepo/). I bring **first-author publications at NDSS and IEEE EuroS&P** plus **six years of pre-PhD offensive-security industry experience** across national-scale financial infrastructure, specializing in **cloud and platform security**, **Kubernetes and container hardening**, **secrets management**, **static analysis**, and **penetration testing**. I am a [Catacosinos Fellow](https://www.cs.stonybrook.edu/) (2025) and [NDSS Fellow](https://www.ndss-symposium.org/) (2025).
 
 My research focuses on building production-grade security systems deployed across hundreds of real-world applications:
 
 - **[LeakLess](https://github.com/mrostamipoor/LeakLess)** — In-memory encryption protecting sensitive data against memory-disclosure and transient-execution attacks (Spectre/Meltdown) in 91% of serverless applications with only 2.8–8.5% overhead. Published at **NDSS 2025**.
 - **[KubeKeeper](https://github.com/mrostamipoor/KubeKeeper)** — Cryptographic Secrets protection for Kubernetes using RBAC and Admission Webhooks, eliminating excessive-permission exposures across 498 real-world applications with zero runtime overhead. Published at **EuroS&P 2025**.
-- **LeakGauge** — IaC-aware static analysis framework (CodeQL) tracing sensitive data flows across serverless deployments, identifying 1,400+ secret-exposure paths across 500+ applications — designed as a CI/CD security guardrail.
+- **LeakChain** — IaC-aware static analysis framework (CodeQL) with integrated LLM-based AI security agent, detecting **798 confirmed secret-exposure flows across 1,156 real-world serverless applications at 100% precision / 93.2% recall**. Designed as a CI/CD security guardrail. Under submission.
 - **[Confine](https://github.com/mrostamipoor/Confine)** — Automated seccomp policy generation for containers via static binary analysis, filtering 144+ system calls on average and mitigating 28 Linux kernel CVEs. Published in *Computers & Security*, 2023.
+
+I am also collaborating with **Samsung Research America** on a study of authentication slip-through in NGINX reverse-proxy deployments (under submission).
 
 Prior to my Ph.D., I was **Head of Software Security** at Sadad Electronic Payment Company, leading threat modeling, security architecture reviews, and penetration testing across a national-scale banking ecosystem. I also performed offensive security assessments at APA Research Center and the Stock Exchange Organization, manually exploiting XSS, SQL injection, SSRF, IDOR, authentication bypass, and RCE vulnerabilities in production financial infrastructure.
 

@@ -588,7 +588,7 @@
           <h2 class="section-title">Security Engineer &nbsp;·&nbsp; Researcher<br>&amp; Applied Scientist</h2>
         </div>
         <p>I am a <strong>Security Engineer, Researcher, and Applied Scientist</strong> completing a PhD in Computer Science at Stony Brook University, advised by <a href="https://www3.cs.stonybrook.edu/~mikepo/" style="color:var(--blue)">Dr. Michalis Polychronakis</a>. I bring <strong>10+ years of combined industry and research experience</strong> spanning cloud and platform security, Kubernetes hardening, secrets management, static analysis, and penetration testing.</p>
-        <p>My research produces <strong>production-grade security systems deployed across hundreds of real-world applications</strong>. I designed and built LeakLess (NDSS 2025), KubeKeeper (EuroS&amp;P 2025), LeakGauge, and Confine — each combining systems research with large-scale empirical evaluation. I am a <strong>Catacosinos Fellow</strong> and <strong>Internet Society NDSS Fellow</strong> (both 2025).</p>
+        <p>My research produces <strong>production-grade security systems evaluated across thousands of real-world applications</strong>. I designed and built LeakLess (NDSS 2025), KubeKeeper (EuroS&amp;P 2025), LeakChain, and Confine — each combining systems research with large-scale empirical evaluation. I am a <strong>Catacosinos Fellow</strong> and <strong>Internet Society NDSS Fellow</strong> (both 2025).</p>
         <p>Before my PhD, I was <strong>Head of Software Security</strong> at Sadad Electronic Payment Company, leading threat modeling, architecture reviews, and penetration testing for a national-scale banking ecosystem — manually exploiting XSS, SQL injection, SSRF, IDOR, authentication bypass, and RCE vulnerabilities in production financial infrastructure.</p>
         <p>I am seeking roles in <strong>Security Engineering, Security Research, or Applied Scientist</strong> positions — with a focus on cloud security, platform security, security tooling, and applied security research. Green Card Holder.</p>
         <div class="about-interests">
@@ -640,18 +640,18 @@
           <span class="rc-link"><i class="fab fa-github"></i> Code</span>
         </div>
       </a>
-      <div class="rc-card rc-orange">
-        <div class="rc-top"><span class="rc-venue rv-orange">In Preparation</span><span class="rc-tag">CI/CD Security</span></div>
-        <h3 class="rc-title">LeakGauge</h3>
-        <p class="rc-desc">IaC-aware static analysis framework (CodeQL) tracing sensitive data flows across serverless deployments. Designed as a CI/CD security guardrail to catch secret exposure before deployment.</p>
+      <a href="/publication/leakchain/" class="rc-card rc-orange" target="_blank" rel="noopener">
+        <div class="rc-top"><span class="rc-venue rv-orange">Under Submission</span><span class="rc-tag">CI/CD Security</span></div>
+        <h3 class="rc-title">LeakChain</h3>
+        <p class="rc-desc">IaC-aware static analysis framework (CodeQL) detecting sensitive-data leakage across distributed serverless applications, with an integrated LLM-based AI agent for flow validation. Designed as a CI/CD security guardrail.</p>
         <div class="rc-metrics">
-          <div class="rc-metric"><strong>1,400+</strong><span>secrets found</span></div>
-          <div class="rc-metric"><strong>500+</strong><span>apps analyzed</span></div>
+          <div class="rc-metric"><strong>798</strong><span>flows detected</span></div>
+          <div class="rc-metric"><strong>100% / 93.2%</strong><span>precision / recall</span></div>
         </div>
         <div class="rc-links">
-          <span class="rc-link rc-link-muted"><i class="fas fa-clock"></i> Coming Soon</span>
+          <span class="rc-link rc-link-muted"><i class="fas fa-clock"></i> Under Submission</span>
         </div>
-      </div>
+      </a>
       <a href="/publication/confine/" class="rc-card rc-purple" target="_blank" rel="noopener">
         <div class="rc-top"><span class="rc-venue rv-purple">Computers &amp; Security 2023</span><span class="rc-tag">Container Security</span></div>
         <h3 class="rc-title">Confine</h3>
@@ -685,7 +685,7 @@
           <ul class="exp-desc">
             <li>Built <strong>LeakLess</strong>: in-memory encryption protecting against Spectre/Meltdown-class attacks in 91% of serverless apps with only 2.8–8.5% overhead. Published at <strong>NDSS 2025</strong>.</li>
             <li>Built <strong>KubeKeeper</strong>: cryptographic Kubernetes Secrets protection across 498 real-world apps with zero runtime overhead. Published at <strong>EuroS&amp;P 2025</strong>.</li>
-            <li>Developed <strong>LeakGauge</strong>: IaC-aware CodeQL framework identifying 1,400+ secret-exposure paths across 500+ serverless applications.</li>
+            <li>Developed <strong>LeakChain</strong>: IaC-aware CodeQL framework with integrated LLM-based AI security agent, detecting 798 confirmed secret-exposure flows across 1,156 real-world serverless applications at 100% precision / 93.2% recall.</li>
             <li>Created <strong>Confine</strong>: automated seccomp policy generation filtering 144+ syscalls and mitigating 28 Linux kernel CVEs. Published in <em>Computers &amp; Security</em>, 2023.</li>
           </ul>
         </div>
@@ -828,11 +828,19 @@
       </div>
       <div class="pub-item pub-prep">
         <div class="pub-meta">
-          <span class="pub-venue pub-venue-prep">In Preparation</span>
+          <span class="pub-venue pub-venue-prep">Under Submission</span>
           <span class="pub-year">2026</span>
         </div>
-        <p class="pub-title">LeakGauge: Infrastructure-as-Code–Aware Sensitive Data Flow Analysis in Event-Driven Serverless Applications</p>
+        <p class="pub-title">LeakChain: Detecting Sensitive Data Leakage Across Distributed Serverless Applications</p>
         <p class="pub-authors"><strong>Maryam Rostamipoor</strong>, Michalis Polychronakis</p>
+      </div>
+      <div class="pub-item pub-prep">
+        <div class="pub-meta">
+          <span class="pub-venue pub-venue-prep">Under Submission</span>
+          <span class="pub-year">2026</span>
+        </div>
+        <p class="pub-title">Breaking the Gate: Detecting Invisible Authentication Slip-Through in NGINX Reverse Proxy</p>
+        <p class="pub-authors">Aliakbar Sadeghi, <strong>Maryam Rostamipoor</strong>, Omar Chowdhury &nbsp;·&nbsp; <em>In collaboration with Samsung Research America</em></p>
       </div>
     </div>
   </div>
